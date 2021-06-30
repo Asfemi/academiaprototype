@@ -16,9 +16,9 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.grey.shade200,
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.grey.shade200,
           elevation: 0,
           actions: [
             Padding(
@@ -40,7 +40,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 Text(
                   'Home',
                   style: TextStyle(
-                    color: Colors.black54,
+                    color: kPrimaryColor,
                     fontSize: 40,
                   ),
                 ),
@@ -79,7 +79,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   'Free Blink of the Day',
                                   style: TextStyle(
-                                    color: kPrimaryColor,
+                                    color: kPrimaryTextColor,
                                     fontSize: 19,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -87,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   'selected by our curators',
                                   style: TextStyle(
-                                    color: kPrimaryColor,
+                                    color: kPrimaryTextColor,
                                     fontSize: 12,
                                     fontWeight: FontWeight.normal,
                                   ),
@@ -96,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Icon(
                               Icons.notifications_outlined,
-                              color: kPrimaryColor,
+                              color: kPrimaryTextColor,
                             ),
                           ],
                         ),
@@ -115,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   'Work together any where',
                                   style: TextStyle(
-                                    color: kPrimaryColor,
+                                    color: kPrimaryTextColor,
                                     fontSize: 14,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -123,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 Text(
                                   'Mr Sam and Prof Ay',
                                   style: TextStyle(
-                                    color: kPrimaryColor,
+                                    color: kPrimaryTextColor,
                                     fontSize: 12,
                                     fontWeight: FontWeight.normal,
                                   ),
@@ -132,7 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             ),
                             Icon(
                               Icons.share_outlined,
-                              color: kPrimaryColor,
+                              color: kPrimaryTextColor,
                             ),
                           ],
                         ),
@@ -140,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       Text(
                         'A handBook on working Remotely - successfully - for Indiviuals, Teams and Managers',
                         style: TextStyle(
-                          color: kPrimaryColor,
+                          color: kPrimaryTextColor,
                           fontSize: 12,
                           fontWeight: FontWeight.normal,
                         ),
@@ -148,14 +148,29 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-                Text(
-                  'Learning paths',
-                  style: kHeadingText2,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      'Learning paths',
+                      //other texts like discover skills, bla bla bla
+                      style: kHeadingText2,
+                    ),
+                    Text(
+                      'See all',
+                      //other texts like discover skills, bla bla bla
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontSize: 14,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Guilded learning on popular topics',
-                  style: kHeadingText3,
-                ),
+//                Text(
+//                  'Guilded learning on popular topics',
+//                  style: kHeadingText3,
+//                ),
                 SingleChildScrollView(
                   padding: EdgeInsets.all(0),
                   scrollDirection: Axis.horizontal,

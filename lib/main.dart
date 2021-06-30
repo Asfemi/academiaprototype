@@ -1,4 +1,9 @@
+import 'package:academiaprototype/Screens/Articles/articlesHome_Screen.dart';
+import 'package:academiaprototype/Screens/Articles/articles_Screen.dart';
+import 'package:academiaprototype/Screens/Clubs/clubs_Screen.dart';
 import 'package:academiaprototype/Screens/Home.dart';
+import 'package:academiaprototype/Screens/Library/library_Screen.dart';
+import 'package:academiaprototype/Screens/sports_Screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,6 +21,11 @@ class MyApp extends StatelessWidget {
         initialRoute: HomeScreen.id,
         routes: {
           HomeScreen.id: (context) => HomeScreen(),
+          ArticlesHomeScreen.id: (context) => ArticlesHomeScreen(),
+          ArticlesScreen.id: (context) => ArticlesScreen(),
+          SportsScreen.id: (context) => SportsScreen(),
+          ClubsScreen.id: (context) => ClubsScreen(),
+          LibraryScreen.id: (context) => LibraryScreen(),
         });
   }
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-const kPrimaryColor = Colors.black54;
+const kPrimaryColor = Colors.blue;
+const kPrimaryTextColor = Colors.black54;
 const kBackGroundColor = Colors.white;
 
 const kMinMinPadding = 2.0;
@@ -13,19 +14,19 @@ const kMaxPadding = 14.0;
 const kMaxMaxPadding = 16.0;
 
 const kHeadingText1 = TextStyle(
-  color: kPrimaryColor,
+  color: kPrimaryTextColor,
   fontSize: 19,
   fontWeight: FontWeight.bold,
 );
 
 const kHeadingText2 = TextStyle(
-  color: kPrimaryColor,
+  color: kPrimaryTextColor,
   fontSize: 14,
   fontWeight: FontWeight.bold,
 );
 
 const kHeadingText3 = TextStyle(
-  color: kPrimaryColor,
+  color: kPrimaryTextColor,
   fontSize: 12,
   fontWeight: FontWeight.normal,
 );

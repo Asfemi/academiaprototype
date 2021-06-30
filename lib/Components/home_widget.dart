@@ -88,7 +88,7 @@ class _Home_WidgetState extends State<Home_Widget> {
             ),
           ),
           Positioned(
-            top: size.shortestSide * 0.820,
+            top: size.shortestSide * 0.828,
             left: 10,
             child: Container(
               constraints: BoxConstraints.tightFor(
@@ -105,7 +105,7 @@ class _Home_WidgetState extends State<Home_Widget> {
             ),
           ),
           Positioned(
-            top: size.shortestSide * 0.85,
+            top: size.shortestSide * 0.854,
             right: 5,
             child: FlatButton(
               onPressed: () {},

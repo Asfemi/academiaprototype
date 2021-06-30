@@ -1,4 +1,3 @@
-
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 //import 'package:google_fonts/google_fonts.dart';
@@ -22,9 +21,9 @@ class HomeBox extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
- Size size = MediaQuery.of(context).size;
-  
-      return Container(
+    Size size = MediaQuery.of(context).size;
+
+    return Container(
       padding: EdgeInsets.all(kMinMediumPadding),
       width: size.width * 0.40,
       //margin: EdgeInsets.all(kDefaultPadding),
@@ -41,7 +40,7 @@ class HomeBox extends StatelessWidget {
                   fit: BoxFit.fill,
                 ),
                 borderRadius: BorderRadius.all(
-                  Radius.circular(5),
+                  Radius.circular(10),
                 ),
 //                border: Border.all(
 //                  color: kPrimaryColor,
@@ -64,7 +63,7 @@ class HomeBox extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Padding(
               padding:
-              const EdgeInsets.only(top: kMinPadding, left: kMinPadding),
+                  const EdgeInsets.only(top: kMinPadding, left: kMinPadding),
               child: Text(
                 text.toUpperCase(),
                 //todo: fkx thks
@@ -80,7 +79,7 @@ class HomeBox extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Padding(
               padding:
-              const EdgeInsets.only(top: kMinPadding, left: kMinPadding),
+                  const EdgeInsets.only(top: kMinPadding, left: kMinPadding),
               child: Text(
                 text2.toLowerCase(),
                 //todo:  fkx thks
