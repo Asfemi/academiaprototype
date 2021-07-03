@@ -1,6 +1,8 @@
 import 'package:academiaprototype/Components/home_box.dart';
 import 'package:academiaprototype/Components/home_widget.dart';
+import 'package:academiaprototype/Screens/news_widget.dart';
 import 'package:academiaprototype/constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -63,10 +65,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 SizedBox(height: 20),
                 Home_Widget(),
                 SizedBox(height: 10),
-                Divider(
-                  color: Colors.black26,
-                  thickness: 1,
-                ),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -500,7 +498,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     ],
                   ),
                 ),
-
+                SizedBox(height: 10),
+                NewsWidget(
+                  size: size,
+                  color: Colors.pink.shade100,
+                  image: 'assets/alex-gruber-9f55wJpnCwY-unsplash.jpg',
+                  heading: 'Free Blink of the Day',
+                  about: 'Escaping the Toxic Culture of self-love',
+                  title: 'You are not Enough (And thats okay)',
+                  author: 'Allie Beth stuckey',
+                  by: 'selected by our curators',
+                ),
               ],
             ),
           ),
@@ -817,4 +825,9 @@ Widget dashboard(context) {
 //                Text(
 //                  'Guilded learning on popular topics',
 //                  style: kHeadingText3,
+//                ),
+
+//                Divider(
+//                  color: Colors.black26,
+//                  thickness: 1,
 //                ),
