@@ -3,6 +3,7 @@ import 'package:academiaprototype/Screens/Articles/articles_Screen.dart';
 import 'package:academiaprototype/Screens/Clubs/clubs_Screen.dart';
 import 'package:academiaprototype/Screens/Home.dart';
 import 'package:academiaprototype/Screens/Library/library_Screen.dart';
+import 'package:academiaprototype/Screens/classes_Screen.dart';
 import 'package:academiaprototype/Screens/sports_Screen.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        title: 'Flutter Demo',
+        title: 'Academia',
         theme: ThemeData(),
         initialRoute: HomeScreen.id,
         routes: {
@@ -26,6 +27,7 @@ class MyApp extends StatelessWidget {
           SportsScreen.id: (context) => SportsScreen(),
           ClubsScreen.id: (context) => ClubsScreen(),
           LibraryScreen.id: (context) => LibraryScreen(),
+          ClassesScreen.id: (context) => ClassesScreen(),
         });
   }
 }

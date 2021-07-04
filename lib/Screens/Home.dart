@@ -63,9 +63,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Home_Widget(),
-                SizedBox(height: 10),
-                SizedBox(height: 10),
+                Home_Widget(
+                  color: Colors.black,
+                  image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
+                  heading: 'Get more from your money',
+                  about:
+                      'Get a premium or metal account to enjoy higher limits and distinctive cards',
+                ),
+                SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -511,6 +516,53 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ],
             ),
+          ),
+        ),
+        drawer: Drawer(
+          child: Column(
+            children: [
+              DrawerHeader(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topLeft,
+                    end: Alignment.bottomRight,
+                    colors: [
+                      Colors.lightBlue,
+                      Colors.white,
+                    ],
+                  ),
+                ),
+                child: Row(
+                  children: [
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Container(
+                          width: size.shortestSide / 3,
+                          height: size.shortestSide / 3,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              image: AssetImage(
+                                  'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg'),
+                              fit: BoxFit.fill,
+                            ),
+                          ),
+                        ),
+                        Text(
+                          'Angela yu',
+                          style: kHeadingText1,
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              Column(
+                //Todo: set up proper drawer items *based on purpular demand.
+                children: [],
+              ),
+            ],
           ),
         ),
       ),

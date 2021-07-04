@@ -3,6 +3,18 @@ import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
 class Home_Widget extends StatefulWidget {
+  Home_Widget({
+    this.color,
+    this.image,
+    this.about,
+    this.heading,
+  });
+
+  final Color color;
+  final String heading;
+  final String about;
+  final String image;
+
   @override
   _Home_WidgetState createState() => _Home_WidgetState();
 }
@@ -21,7 +33,7 @@ class _Home_WidgetState extends State<Home_Widget> {
             height: size.shortestSide,
             width: size.shortestSide,
             decoration: BoxDecoration(
-              color: Colors.black,
+              color: widget.color,
               borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
@@ -32,8 +44,7 @@ class _Home_WidgetState extends State<Home_Widget> {
                 width: size.shortestSide * 0.6,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(
-                        'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg'),
+                    image: AssetImage(widget.image),
                     fit: BoxFit.fill,
                   ),
 //            borderRadius: BorderRadius.all(
@@ -78,7 +89,7 @@ class _Home_WidgetState extends State<Home_Widget> {
                 height: size.shortestSide * 0.3,
               ),
               child: Text(
-                'Get more from your money',
+                widget.heading,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
@@ -96,7 +107,7 @@ class _Home_WidgetState extends State<Home_Widget> {
                 height: size.shortestSide * 0.3,
               ),
               child: Text(
-                'Get a premium or metal account to enjoy higher limits and distinctive cards',
+                widget.about,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 13,
