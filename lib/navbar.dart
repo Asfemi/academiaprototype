@@ -61,7 +61,12 @@ class SwipeNavigation extends StatelessWidget {
             icon: Icon(
               LineIcons.book,
               color: kPrimaryColor,
+            ),
+            activeIcon: Icon(
+              Icons.book_outlined,
+              color: kPrimaryColor,
             )),
+
 //        ScrollNavigationItem(
 //          title: "Gist",
 //          icon: Icon(

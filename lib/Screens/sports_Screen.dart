@@ -17,7 +17,35 @@ List<String> sportTypes = [
   'Table Tennis',
 ];
 
-List<String> litems = [];
+List<String> sendersList = [
+  'Fbms vows to defeat law tomorrow',
+  'Sponsorship for active sportsmen',
+  'FOE Winners of the inter Faculty sports',
+  'Each faculty to assemble a sports team',
+  'Ecouragement for female atlethes',
+  'Adeleke beats babcock 6-1',
+  'Proper Sports ethics',
+  'First aid kits provided for during sports',
+  'boots to be provided for best goal scorers',
+  'michael sanni best keeper of the month',
+];
+List<String> subjectList = [
+  'in a meeting with the sports director yesterday...'
+      'message from the chairman',
+  'message from the Sports director',
+  'an 11 man team is to be assembled by each faculty by...',
+  'Dr anu in meeting yesterday has called to attention...',
+  'Ooh what a match it was and the ecitement in the air as...',
+  'The sports committe set up by the university...',
+  'The medical team has called to notice the dangers in...',
+  'Dr dupe has given provision for the best sportsmen...',
+  'For the fourth time in a row he has done it again...',
+];
+
+List<String> introList = [
+  'Today at the students life seminar the...',
+  'it was a magnificent sight to behold as...',
+];
 
 List<DropdownMenuItem> getDropdownItem() {
   List<DropdownMenuItem<String>> dropdownItems = [];
@@ -27,10 +55,12 @@ List<DropdownMenuItem> getDropdownItem() {
       child: Text(
         sports,
         style: TextStyle(
-          color: kPrimaryTextColor,
+          color: Colors.white,
         ),
       ),
       value: sports,
+
+      //onTap: (value) => ;
     );
 
     dropdownItems.add(newItem);
@@ -43,38 +73,41 @@ class _SportsScreenState extends State<SportsScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final title = 'Sports';
+
     return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: AppBar(
-//        title: Text('Sports'),
-//        centerTitle: true,
-        elevation: 0,
-        backgroundColor: Colors.grey.shade100,
-      ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                crossAxisAlignment: CrossAxisAlignment.end,
-                children: [
-                  Align(
-                      alignment: Alignment.topLeft,
-                      child: Text(
-                        'Sports',
-                        style: TextStyle(
-                          color: kPrimaryTextColor,
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold,
-                        ),
+        backgroundColor: Colors.grey[100],
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              snap: false,
+              pinned: false,
+              floating: false,
+              flexibleSpace: FlexibleSpaceBar(
+                  centerTitle: true,
+                  title: Text("$title",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16.0,
                       )),
-                  Container(
-                    height: 35,
-                    width: 120,
-                    decoration: BoxDecoration(
+                  background: Image.asset(
+                    "assets/eee.jpg",
+                    fit: BoxFit.cover,
+                  )),
+              expandedHeight: 230,
+              backgroundColor: Colors.greenAccent[400],
+              leading: IconButton(
+                icon: Icon(Icons.arrow_back_ios),
+                tooltip: 'back',
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+              ), //IconButton
+              actions: <Widget>[
+                Container(
+                  height: 35,
+                  width: 120,
+                  decoration: BoxDecoration(
 //                      border: Border.all(
 //                        color: kPrimaryColor,
 //                        style: BorderStyle.solid,
@@ -83,117 +116,97 @@ class _SportsScreenState extends State<SportsScreen> {
 //                        image: AssetImage("images/200h.gif"),
 //                        fit: BoxFit.fill,
 //                      ),
-                        ),
-                    child: DropdownButton<String>(
-                      value: selectedSport,
-                      onChanged: (value) {
-                        setState(() {
-                          value = selectedSport;
-                        });
-                      },
-                      items: getDropdownItem(),
-                    ),
-                  ),
-                ],
-              ),
-              Container(
-                height: size.height * 0.005,
-                width: size.width * 0.045,
-                decoration: BoxDecoration(
-                  color: Colors.black54,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(5.0),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 50,
-              ),
-              ListView.builder(
-                itemCount: litems.length,
-                itemBuilder: (BuildContext ctxt, int index) {
-                  return new Text('index');
-                },
-              ),
-              Container(
-//         TODO: regularize this news widget in the ausa, sports, clubs screens
-                height: size.shortestSide,
-                width: size.shortestSide / 0.9,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(10)),
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
+                      ),
+                  child: DropdownButton<String>(
+                    style: TextStyle(
                       color: kPrimaryColor,
-                      offset: Offset.fromDirection(0, 2),
-                      blurRadius: 3,
                     ),
-                  ],
+                    icon: ImageIcon(
+                      AssetImage("images/200h.gif"),
+                    ),
+                    iconDisabledColor: kPrimaryColor,
+                    iconEnabledColor: Colors.white,
+                    value: selectedSport,
+                    onChanged: (value) {
+                      setState(() {
+                        value = selectedSport;
+                      });
+                    },
+                    items: getDropdownItem(),
+                  ),
                 ),
-                clipBehavior: Clip.hardEdge,
-                child: Column(
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Container(
-                        color: kPrimaryColor,
-                        width: size.width - 10,
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+              ], //<Widget>[]
+            ), //SliverAppBar
+            SliverList(
+              delegate: SliverChildBuilderDelegate(
+                (context, position) => Column(
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Expanded(
+                          flex: 4,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Sponsors for active sports men',
-                                textScaleFactor:
-                                    MediaQuery.textScaleFactorOf(context),
-                                style: TextStyle(
-                                  fontSize: 18,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold,
+                            children: <Widget>[
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    4.0, 4.0, 4.0, 2.0),
+                                child: Text(
+                                  sendersList[position],
+                                  style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold),
                                 ),
                               ),
-                              Text(
-                                'the university chairman...',
-                                textScaleFactor:
-                                    MediaQuery.textScaleFactorOf(context),
-                                style: TextStyle(
-                                  fontSize: 11,
-                                  color: Colors.black,
+                              Padding(
+                                padding: const EdgeInsets.fromLTRB(
+                                    4.0, 2.0, 4.0, 4.0),
+                                child: Text(
+                                  subjectList[position],
+                                  style: TextStyle(fontSize: 11.0),
                                 ),
                               ),
                             ],
                           ),
                         ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 9,
-                      child: Container(
-                        width: size.width - 10,
-                        decoration: BoxDecoration(
-                          image: DecorationImage(
-                            image: AssetImage('assets/27.jpg'),
-                            fit: BoxFit.fill,
+                        Expanded(
+                          flex: 1,
+                          child: Padding(
+                            padding: const EdgeInsets.all(2.0),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: <Widget>[
+                                Text(
+                                  "5m",
+                                  style: TextStyle(color: Colors.grey),
+                                ),
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Icon(
+                                    Icons.star_border,
+                                    size: 20.0,
+                                    color: Colors.grey,
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
+                      ],
                     ),
-                    Expanded(
-                      flex: 1,
-                      child: Container(
-                        //color: Colors.blue,
-                        width: size.width - 10,
-                      ),
-                    ),
+                    Divider(
+                      height: 2.0,
+                      color: Colors.grey,
+                    )
                   ],
                 ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
+                childCount: sendersList.length + subjectList.length,
+              ), //SliverChildBuildDelegate
+            ) //SliverList
+          ], //<Widget>[]
+        ) //CustonScro
+        );
   }
 }
 
