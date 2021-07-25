@@ -1,4 +1,5 @@
 import 'package:academiaprototype/Screens/Home.dart';
+import 'package:academiaprototype/Screens/classes_Screen.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 //import 'package:google_nav_bar/google_nav_bar.dart';
@@ -24,6 +25,7 @@ class SwipeNavigation extends StatelessWidget {
       ),
       pages: [
         HomeScreen(),
+        ClassesScreen(),
       ],
       items: const [
         ScrollNavigationItem(
@@ -36,41 +38,41 @@ class SwipeNavigation extends StatelessWidget {
               Icons.verified_user,
               color: kPrimaryColor,
             )),
-        ScrollNavigationItem(
-          title: "Articles",
-          icon: Icon(
-            LineIcons.bookOpen,
-            color: kPrimaryColor,
-          ),
-        ),
-        ScrollNavigationItem(
-          title: "Chat",
-          icon: Icon(
-            Icons.mail_outline,
-            color: kPrimaryColor,
-          ),
-          activeIcon: Icon(
-            Icons.email,
-            color: kPrimaryColor,
-          ),
-        ),
+//        ScrollNavigationItem(
+//          title: "Articles",
+//          icon: Icon(
+//            LineIcons.bookOpen,
+//            color: kPrimaryColor,
+//          ),
+//        ),
+//        ScrollNavigationItem(
+//          title: "Chat",
+//          icon: Icon(
+//            Icons.mail_outline,
+//            color: kPrimaryColor,
+//          ),
+//          activeIcon: Icon(
+//            Icons.email,
+//            color: kPrimaryColor,
+//          ),
+//        ),
         ScrollNavigationItem(
             title: "Classes",
             icon: Icon(
               LineIcons.book,
               color: kPrimaryColor,
             )),
-        ScrollNavigationItem(
-          title: "Gist",
-          icon: Icon(
-            Icons.people,
-            color: kPrimaryColor,
-          ),
-          activeIcon: Icon(
-            Icons.person,
-            color: kPrimaryColor,
-          ),
-        ),
+//        ScrollNavigationItem(
+//          title: "Gist",
+//          icon: Icon(
+//            Icons.people,
+//            color: kPrimaryColor,
+//          ),
+//          activeIcon: Icon(
+//            Icons.person,
+//            color: kPrimaryColor,
+//          ),
+//        ),
       ],
     );
   }

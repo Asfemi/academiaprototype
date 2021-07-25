@@ -1,10 +1,12 @@
 import 'package:academiaprototype/Screens/Articles/articlesHome_Screen.dart';
 import 'package:academiaprototype/Screens/Articles/articles_Screen.dart';
 import 'package:academiaprototype/Screens/Clubs/clubs_Screen.dart';
+import 'package:academiaprototype/Screens/Faculty/FacultyPage.dart';
 import 'package:academiaprototype/Screens/Home.dart';
 import 'package:academiaprototype/Screens/Library/library_Screen.dart';
 import 'package:academiaprototype/Screens/classes_Screen.dart';
 import 'package:academiaprototype/Screens/sports_Screen.dart';
+import 'package:academiaprototype/navbar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -19,8 +21,9 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         title: 'Academia',
         theme: ThemeData(),
-        initialRoute: HomeScreen.id,
+        initialRoute: SwipeNavigation.id,
         routes: {
+          SwipeNavigation.id: (context) => SwipeNavigation(),
           HomeScreen.id: (context) => HomeScreen(),
           ArticlesHomeScreen.id: (context) => ArticlesHomeScreen(),
           ArticlesScreen.id: (context) => ArticlesScreen(),
@@ -28,6 +31,7 @@ class MyApp extends StatelessWidget {
           ClubsScreen.id: (context) => ClubsScreen(),
           LibraryScreen.id: (context) => LibraryScreen(),
           ClassesScreen.id: (context) => ClassesScreen(),
+          FacultyPage.id: (context) => FacultyPage(),
         });
   }
 }

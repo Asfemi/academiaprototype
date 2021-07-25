@@ -1,6 +1,3 @@
-
-
-
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -11,7 +8,7 @@ class SportsScreen extends StatefulWidget {
   _SportsScreenState createState() => _SportsScreenState();
 }
 
-String selectedSport = '.';
+String selectedSport = 'Football';
 
 List<String> sportTypes = [
   'BasketBall',
@@ -20,12 +17,19 @@ List<String> sportTypes = [
   'Table Tennis',
 ];
 
+List<String> litems = [];
+
 List<DropdownMenuItem> getDropdownItem() {
   List<DropdownMenuItem<String>> dropdownItems = [];
 
   for (String sports in sportTypes) {
     var newItem = DropdownMenuItem(
-      child: Text(sports),
+      child: Text(
+        sports,
+        style: TextStyle(
+          color: kPrimaryTextColor,
+        ),
+      ),
       value: sports,
     );
 
@@ -40,72 +44,83 @@ class _SportsScreenState extends State<SportsScreen> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      backgroundColor: Colors.grey[50],
+      backgroundColor: Colors.grey[100],
       appBar: AppBar(
-        title: Text('Sports'),
-        centerTitle: true,
+//        title: Text('Sports'),
+//        centerTitle: true,
+        elevation: 0,
+        backgroundColor: Colors.grey.shade100,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Stack(
-              children: <Widget>[
-                Hero(
-                  tag: '6',
-//                  child: ImageSlider(
-//                    heightt: 0.5,
-//                    imagePath: 'SportsScreen',
-//                    imageList: [
-//                      '1.jpg',
-//                      '2.jpg',
-//                      '3.jpg',
-//                      '4.jpg',
-//                      '5.jpg',
-//                      '6.jpg',
-//                      'IMG-20201204-WA0009.jpg',
-//                      '27.jpg',
-//                      '28.jpg',
-//                      '29.jpg',
-//                      '1.jpg',
-//                    ],
-//                  ),
-                ),
-                Positioned(
-                  right: 10,
-                  top: 10,
-                  child: Container(
-                    height: 104,
-                    width: 104,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Align(
+                      alignment: Alignment.topLeft,
+                      child: Text(
+                        'Sports',
+                        style: TextStyle(
+                          color: kPrimaryTextColor,
+                          fontSize: 40,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      )),
+                  Container(
+                    height: 35,
+                    width: 120,
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(15),
-                      ),
-                      border: Border.all(
-                        color: kPrimaryColor,
-                        style: BorderStyle.solid,
-                      ),
-                      image: DecorationImage(
-                        image: AssetImage("images/200h.gif"),
-                        fit: BoxFit.fill,
-                      ),
-                    ),
+//                      border: Border.all(
+//                        color: kPrimaryColor,
+//                        style: BorderStyle.solid,
+//                      ),
+//                      image: DecorationImage(
+//                        image: AssetImage("images/200h.gif"),
+//                        fit: BoxFit.fill,
+//                      ),
+                        ),
                     child: DropdownButton<String>(
                       value: selectedSport,
-                      onChanged: (value) {},
+                      onChanged: (value) {
+                        setState(() {
+                          value = selectedSport;
+                        });
+                      },
                       items: getDropdownItem(),
                     ),
                   ),
-                ),
-              ],
-            ),
-            Padding(
-              padding: const EdgeInsets.fromLTRB(8.0, 15.0, 8.0, 8.0),
-              child: Container(
-//         TODO: regularize this news widget in the ausa, sports, clubs screens
-                height: 230,
-                width: size.width - 30,
+                ],
+              ),
+              Container(
+                height: size.height * 0.005,
+                width: size.width * 0.045,
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.all(Radius.circular(16)),
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(5.0),
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 50,
+              ),
+              ListView.builder(
+                itemCount: litems.length,
+                itemBuilder: (BuildContext ctxt, int index) {
+                  return new Text('index');
+                },
+              ),
+              Container(
+//         TODO: regularize this news widget in the ausa, sports, clubs screens
+                height: size.shortestSide,
+                width: size.shortestSide / 0.9,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.all(Radius.circular(10)),
                   color: Colors.white,
                   boxShadow: [
                     BoxShadow(
@@ -121,7 +136,7 @@ class _SportsScreenState extends State<SportsScreen> {
                     Expanded(
                       flex: 3,
                       child: Container(
-                        color: Colors.white,
+                        color: kPrimaryColor,
                         width: size.width - 10,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -158,7 +173,7 @@ class _SportsScreenState extends State<SportsScreen> {
                         width: size.width - 10,
                         decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: AssetImage('images/101.jpg'),
+                            image: AssetImage('assets/27.jpg'),
                             fit: BoxFit.fill,
                           ),
                         ),
@@ -167,28 +182,15 @@ class _SportsScreenState extends State<SportsScreen> {
                     Expanded(
                       flex: 1,
                       child: Container(
-                        color: Colors.white,
+                        //color: Colors.blue,
                         width: size.width - 10,
                       ),
                     ),
                   ],
                 ),
               ),
-            ),
-//            CustomScreenTile(
-////              text: 'UpComing Matches',
-////              icon: Icons.people,
-////            ),
-////            CustomScreenTile(
-////              text: 'School Teams',
-////              icon: Icons.people,
-////            ),
-////            CustomScreenTile(
-////              text: 'OnGoing Matches',
-////              icon: Icons.people,
-////            ),
-            //check out eben sports app for ideas
-          ],
+            ],
+          ),
         ),
       ),
     );

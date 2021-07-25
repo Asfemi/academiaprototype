@@ -29,18 +29,18 @@ class _LibraryScreenState extends State<LibraryScreen> {
               height: size.height * 0.6,
               child: Stack(
                 children: <Widget>[
-                  Hero(
-                    tag: '2',
-//                    child: ImageSlider(
-//              heightt: 0.5,
-//              imagePath: 'LibraryScreen',
-//              imageList: [
-//                'l5.PNG',
-//                'aa2.PNG',
-//                'a3.PNG',
-//              ],
-//            ),
-                  ),
+//                  Hero(
+//                    tag: '2',
+////                    child: ImageSlider(
+////              heightt: 0.5,
+////              imagePath: 'LibraryScreen',
+////              imageList: [
+////                'l5.PNG',
+////                'aa2.PNG',
+////                'a3.PNG',
+////              ],
+////            ),
+//                  ),
                   Positioned(
                     top: 10,
                     left: 0,

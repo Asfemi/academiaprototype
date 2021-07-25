@@ -1,6 +1,12 @@
 import 'package:academiaprototype/Components/home_box.dart';
 import 'package:academiaprototype/Components/home_widget.dart';
+import 'package:academiaprototype/Screens/Clubs/clubs_Screen.dart';
+import 'package:academiaprototype/Screens/Faculty/FacultyPage.dart';
+import 'package:academiaprototype/Screens/General/general_Screen.dart';
+import 'package:academiaprototype/Screens/Library/library_Screen.dart';
+import 'package:academiaprototype/Screens/ausa_Screen.dart';
 import 'package:academiaprototype/Screens/news_widget.dart';
+import 'package:academiaprototype/Screens/sports_Screen.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,9 +24,9 @@ class _HomeScreenState extends State<HomeScreen> {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        backgroundColor: Colors.grey.shade200,
+        backgroundColor: Colors.grey.shade100,
         appBar: AppBar(
-          backgroundColor: Colors.grey.shade200,
+          backgroundColor: Colors.grey.shade100,
           elevation: 0,
           actions: [
             Padding(
@@ -104,7 +110,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         text3: 'm3m3',
                         tag: '1',
                         onPressed: () {
-                          //Navigator.pushNamed(context, FacultyScreen.id);
+                          Navigator.pushNamed(context, FacultyPage.id);
                         },
                         image: 'assets/umberto-GQ4VBpgPzik-unsplash.jpg',
                         text: 'Faculty',
@@ -117,7 +123,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         light: false,
                         tag: '2',
                         onPressed: () {
-                          // Navigator.pushNamed(context, LibraryScreen.id);
+                          Navigator.pushNamed(context, LibraryScreen.id);
                         },
                         image:
                             'assets/matthew-hamilton-BeeMMFF_jso-unsplash.jpg',
@@ -131,7 +137,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         light: false,
                         tag: '3',
                         onPressed: () {
-                          // Navigator.pushNamed(context, ClubsScreen.id);
+                          Navigator.pushNamed(context, ClubsScreen.id);
                         },
                         image: 'assets/mike-meyers-IJyXoyGmiZY-unsplash.jpg',
                         text: 'Clubs',
@@ -144,7 +150,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         light: false,
                         tag: '6',
                         onPressed: () {
-                          // Navigator.pushNamed(context, SportsScreen.id);
+                          Navigator.pushNamed(context, SportsScreen.id);
                         },
                         image: 'assets/mike-meyers--haAxbjiHds-unsplash.jpg',
                         text: 'Sports',
@@ -157,7 +163,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         light: true,
                         tag: '5',
                         onPressed: () {
-                          // Navigator.pushNamed(context, GeneralScreen.id);
+                          Navigator.pushNamed(context, GeneralScreen.id);
                         },
                         image:
                             'assets/neenu-vimalkumar-S2oy0RCkORY-unsplash.jpg',
@@ -171,7 +177,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         light: true,
                         tag: '4',
                         onPressed: () {
-                          // Navigator.pushNamed(context, AusaScreen.id);
+                          Navigator.pushNamed(context, AusaScreen.id);
                         },
                         image: 'assets/c-d-x-PDX_a_82obo-unsplash.jpg',
                         text: 'Ausa',
@@ -710,8 +716,10 @@ Widget dashboard(context) {
           Expanded(flex: 1, child: Container()),
           HomeBox(
             tag: '1',
+            light: true,
             onPressed: () {
-              //Navigator.pushNamed(context, FacultyScreen.id);
+              Navigator.pushNamed(context, FacultyPage.id);
+              print('faculty botton pressed');
             },
             image: 'assets/fbms.jpg',
             text: 'Faculty',
@@ -720,8 +728,9 @@ Widget dashboard(context) {
           Expanded(flex: 2, child: Container()),
           HomeBox(
             tag: '2',
+            light: false,
             onPressed: () {
-              // Navigator.pushNamed(context, LibraryScreen.id);
+              Navigator.pushNamed(context, LibraryScreen.id);
             },
             image: 'assets/11.PNG',
             text: 'Library',
@@ -736,8 +745,9 @@ Widget dashboard(context) {
           Expanded(flex: 1, child: Container()),
           HomeBox(
             tag: '3',
+            light: false,
             onPressed: () {
-              // Navigator.pushNamed(context, ClubsScreen.id);
+              Navigator.pushNamed(context, ClubsScreen.id);
             },
             image: 'assets/fbss.jpg',
             text: 'Clubs',
@@ -746,8 +756,9 @@ Widget dashboard(context) {
           Expanded(flex: 2, child: Container()),
           HomeBox(
             tag: '6',
+            light: false,
             onPressed: () {
-              // Navigator.pushNamed(context, SportsScreen.id);
+              Navigator.pushNamed(context, SportsScreen.id);
             },
             image: 'assets/29.jpg',
             text: 'Sports',
@@ -762,8 +773,9 @@ Widget dashboard(context) {
           Expanded(flex: 1, child: Container()),
           HomeBox(
             tag: '5',
+            light: true,
             onPressed: () {
-              // Navigator.pushNamed(context, GeneralScreen.id);
+              Navigator.pushNamed(context, GeneralScreen.id);
             },
             image: 'assets/5.PNG',
             text: 'General',
@@ -772,8 +784,9 @@ Widget dashboard(context) {
           Expanded(flex: 2, child: Container()),
           HomeBox(
             tag: '4',
+            light: true,
             onPressed: () {
-              // Navigator.pushNamed(context, AusaScreen.id);
+              Navigator.pushNamed(context, AusaScreen.id);
             },
             image: 'assets/fol.jpg',
             text: 'Ausa',

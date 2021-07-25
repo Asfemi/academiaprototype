@@ -6,6 +6,8 @@ import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 
 class FacultyPage extends StatefulWidget {
+  static String id = 'facultypage';
+
   FacultyPage({this.faculty, this.imageList, this.imagePath});
 
   final String faculty;

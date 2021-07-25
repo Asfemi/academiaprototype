@@ -34,7 +34,10 @@ class HomeTab extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(writeUp, style: kHeadingText2,),
+              Text(
+                writeUp,
+                style: kHeadingText2,
+              ),
               Container(
                 height: size.height * 0.075,
                 width: size.width * 0.08,
