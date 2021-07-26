@@ -11,11 +11,12 @@ class CustomScreenTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.fromLTRB(4.0, 4.0, 2.0, 4.0),
       child: GestureDetector(
         onTap: ontap,
         child: Container(
-          height: 70,
+          height: 200,
+          width: 120,
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [

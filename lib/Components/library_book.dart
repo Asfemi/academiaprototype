@@ -30,6 +30,9 @@ class LibraryBook extends StatelessWidget {
                   image: AssetImage(image),
                   fit: BoxFit.cover,
                 ),
+                borderRadius: BorderRadius.all(
+                  Radius.circular(5.0),
+                ),
                 boxShadow: [
                   BoxShadow(
                     offset: Offset(0, 5),

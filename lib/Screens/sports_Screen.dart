@@ -54,9 +54,9 @@ List<DropdownMenuItem> getDropdownItem() {
     var newItem = DropdownMenuItem(
       child: Text(
         sports,
-        style: TextStyle(
-          color: Colors.white,
-        ),
+        // style: TextStyle(
+        //   color: Colors.white,
+        // ),
       ),
       value: sports,
 
@@ -81,7 +81,7 @@ class _SportsScreenState extends State<SportsScreen> {
           slivers: <Widget>[
             SliverAppBar(
               snap: false,
-              pinned: false,
+              pinned: true,
               floating: false,
               flexibleSpace: FlexibleSpaceBar(
                   centerTitle: true,
@@ -94,35 +94,31 @@ class _SportsScreenState extends State<SportsScreen> {
                     "assets/eee.jpg",
                     fit: BoxFit.cover,
                   )),
-              expandedHeight: 230,
-              backgroundColor: Colors.greenAccent[400],
+              expandedHeight: size.height / 2.5,
+              backgroundColor: kPrimaryColor,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_ios),
+                icon: Icon(
+                  Icons.arrow_back_ios,
+                  color: kPrimaryColor,
+                ),
                 tooltip: 'back',
                 onPressed: () {
                   Navigator.pop(context);
                 },
-              ), //IconButton
+              ),
               actions: <Widget>[
-                Container(
-                  height: 35,
-                  width: 120,
-                  decoration: BoxDecoration(
-//                      border: Border.all(
-//                        color: kPrimaryColor,
-//                        style: BorderStyle.solid,
-//                      ),
-//                      image: DecorationImage(
-//                        image: AssetImage("images/200h.gif"),
-//                        fit: BoxFit.fill,
-//                      ),
-                      ),
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
                   child: DropdownButton<String>(
                     style: TextStyle(
                       color: kPrimaryColor,
                     ),
-                    icon: ImageIcon(
-                      AssetImage("images/200h.gif"),
+                    icon: ClipOval(
+                      child: Image.asset(
+                        'assets/200h.gif',
+                        height: 20,
+                        width: 20,
+                      ),
                     ),
                     iconDisabledColor: kPrimaryColor,
                     iconEnabledColor: Colors.white,
@@ -135,8 +131,8 @@ class _SportsScreenState extends State<SportsScreen> {
                     items: getDropdownItem(),
                   ),
                 ),
-              ], //<Widget>[]
-            ), //SliverAppBar
+              ],
+            ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
                 (context, position) => Column(
@@ -151,7 +147,7 @@ class _SportsScreenState extends State<SportsScreen> {
                             children: <Widget>[
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
-                                    4.0, 4.0, 4.0, 2.0),
+                                    12.0, 12.0, 12.0, 6.0),
                                 child: Text(
                                   sendersList[position],
                                   style: TextStyle(
@@ -161,7 +157,7 @@ class _SportsScreenState extends State<SportsScreen> {
                               ),
                               Padding(
                                 padding: const EdgeInsets.fromLTRB(
-                                    4.0, 2.0, 4.0, 4.0),
+                                    12.0, 6.0, 12.0, 12.0),
                                 child: Text(
                                   subjectList[position],
                                   style: TextStyle(fontSize: 11.0),
@@ -201,12 +197,11 @@ class _SportsScreenState extends State<SportsScreen> {
                     )
                   ],
                 ),
-                childCount: sendersList.length + subjectList.length,
+                childCount: sendersList.length,
               ), //SliverChildBuildDelegate
-            ) //SliverList
-          ], //<Widget>[]
-        ) //CustonScro
-        );
+            )
+          ],
+        ));
   }
 }
 

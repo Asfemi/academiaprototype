@@ -1,133 +1,138 @@
-import 'package:academiaprototype/Components/Custom_screen_tile.dart';
-import 'package:academiaprototype/Components/DependentDropDownList.dart';
+import 'package:academiaprototype/Components/MyScrollView.dart';
 import 'package:academiaprototype/constants.dart';
 //import 'package:academiaprototype/Screens/Faculty/department_Screen.dart';
-//import 'package:academia/Screens/Faculty/FOL/FOLGallery.dart';
+
 import 'package:flutter/material.dart';
 
 class FacultyPage extends StatefulWidget {
   static String id = 'facultypage';
 
-  FacultyPage({this.faculty, this.imageList, this.imagePath});
-
-  final String faculty;
-  final List imageList;
-  final String imagePath;
-
   @override
-  _FacultyPageState createState() => _FacultyPageState(
-      faculty: faculty, imageList: imageList, imagePath: imagePath);
+  _FacultyPageState createState() => _FacultyPageState();
 }
 
+List<String> sendersList = [
+  'Fbms vows to defeat law tomorrow',
+  'Sponsorship for active sportsmen',
+  'FOE Winners of the inter Faculty sports',
+  'Each faculty to assemble a sports team',
+  'Ecouragement for female atlethes',
+  'Adeleke beats babcock 6-1',
+  'Proper Sports ethics',
+  'First aid kits provided for during sports',
+  'boots to be provided for best goal scorers',
+  'michael sanni best keeper of the month',
+];
+List<String> subjectList = [
+  'in a meeting with the sports director yesterday...'
+      'message from the chairman',
+  'message from the Sports director',
+  'an 11 man team is to be assembled by each faculty by...',
+  'Dr anu in meeting yesterday has called to attention...',
+  'Ooh what a match it was and the ecitement in the air as...',
+  'The sports committe set up by the university...',
+  'The medical team has called to notice the dangers in...',
+  'Dr dupe has given provision for the best sportsmen...',
+  'For the fourth time in a row he has done it again...',
+];
+
 class _FacultyPageState extends State<FacultyPage> {
-  _FacultyPageState({this.faculty, this.imageList, this.imagePath});
-
-  final String faculty;
-  final List imageList;
-  final String imagePath;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final title = 'Faculty';
+
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Faculty of $faculty'),
-        centerTitle: true,
-        actions: [],
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          //Navigator.pushNamed(context, DepartmentScreen.id);
+        },
+        child: Icon(Icons.arrow_back),
+        backgroundColor: kPrimaryColor,
       ),
       //TODO: set security rules and allow only users with selected faculties to see their faculty page
-      body: SingleChildScrollView(
-        child: Column(
-          children: <Widget>[
-            Stack(
-              children: <Widget>[
-                Hero(
-                  tag: '1',
-                  child: Container(
-                    height: size.height * 0.6,
-                  ),
-                ),
-                Positioned(
-                  bottom: 0,
-                  left: 0,
-                  right: 0,
-                  child: Padding(
-                    padding: EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                      onTap: () {
-                        //Navigator.pushNamed(context, DepartmentScreen.id);
-                      },
-                      child: Container(
-                        height: size.height * 0.07,
-                        width: size.width - 10,
-                        decoration: BoxDecoration(
-                          color: kPrimaryColor.withOpacity(0.7),
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(16),
-                          ),
-                        ),
-                        child: Center(
+      body: MyScrollView(
+        title: title,
+        backgroundWidget: Image.asset(
+          "assets/foe.jpg",
+          fit: BoxFit.cover,
+        ),
+        height: size.height / 2.5,
+        leadingWidget: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios,
+            color: kPrimaryColor,
+          ),
+          tooltip: 'back',
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        actionsList: null,
+        bottom: null,
+        child: SliverChildBuilderDelegate(
+          (context, position) => Column(
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Expanded(
+                    flex: 4,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Padding(
+                          padding:
+                              const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 6.0),
                           child: Text(
-                            'Department',
-                            style: TextStyle(fontSize: 35, color: Colors.white),
+                            sendersList[position],
+                            style: TextStyle(
+                                fontSize: 14.0, fontWeight: FontWeight.bold),
                           ),
                         ),
+                        Padding(
+                          padding:
+                              const EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 12.0),
+                          child: Text(
+                            subjectList[position],
+                            style: TextStyle(fontSize: 11.0),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.all(2.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        children: <Widget>[
+                          Text(
+                            "5m",
+                            style: TextStyle(color: Colors.grey),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.star_border,
+                              size: 20.0,
+                              color: Colors.grey,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            CustomScreenTile(
-              icon: Icons.event_available,
-              text: 'General info',
-              ontap: () {
-                //Navigator.pushNamed(context, FacultyGenInfo.id);
-              },
-            ),
-            CustomScreenTile(
-              icon: Icons.calendar_today,
-              text: 'Calender/Events',
-              ontap: () {
-                //Navigator.pushNamed(context, FacultyCalender.id);
-              },
-            ),
-            CustomScreenTile(
-              icon: Icons.message,
-              text: 'Messages',
-              ontap: () {
-                // Navigator.pushNamed(context, FacultyMessages.id);
-              },
-            ),
-            CustomScreenTile(
-              icon: Icons.picture_in_picture_alt,
-              text: 'Gallery',
-              ontap: () {
-                // Navigator.pushNamed(context, FacultyGallery.id);
-              },
-            ),
-            CustomScreenTile(
-              icon: Icons.work,
-              text: 'Notable Works',
-              ontap: () {
-                //Navigator.pushNamed(context, NotableWorks.id);
-              },
-            ),
-            CustomScreenTile(
-              icon: Icons.people,
-              text: 'Alumin',
-              ontap: () {
-                //Navigator.pushNamed(context, FacultyAluminni.id);
-              },
-            ),
-            CustomScreenTile(
-              icon: Icons.build,
-              text: 'Faculty Structure',
-              ontap: () {
-                // Navigator.pushNamed(context, FacultyStructure.id);
-              },
-            ),
-          ],
+                ],
+              ),
+              Divider(
+                height: 2.0,
+                color: Colors.grey,
+              )
+            ],
+          ),
+          childCount: subjectList.length,
         ),
       ),
       //Todo: Setup faculty drawer
@@ -143,7 +148,7 @@ class _FacultyPageState extends State<FacultyPage> {
                       children: [
                         ClipOval(
                           child: Image.asset(
-                            'images/11.jpg',
+                            'assets/1.jpg',
                             fit: BoxFit.fill,
                             height: size.height * 0.10,
                             width: size.width * 0.20,
@@ -163,7 +168,6 @@ class _FacultyPageState extends State<FacultyPage> {
               ListTile(
                 title: Text('faculty:'),
               ),
-              DependentDropDown(),
             ],
           ),
         ),

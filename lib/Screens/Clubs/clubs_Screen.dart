@@ -1,4 +1,4 @@
-import 'package:academiaprototype/Components/Custom_screen_tile.dart';
+import 'package:academiaprototype/Components/MyScrollView.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +9,34 @@ class ClubsScreen extends StatefulWidget {
   _ClubsScreenState createState() => _ClubsScreenState();
 }
 
-String selectedClub = 'Skill';
+List<String> sendersList = [
+  'fashion ',
+  'Agro ',
+  'Technical ',
+  'Masters Chef ',
+  'Beauty ',
+  'Home Makers ',
+  'Bakers ',
+  'Aeshetics ',
+  'Sports ',
+  'Masters Chef ',
+  'Literary ',
+];
+List<String> images = [
+  'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
+  'assets/matthew-hamilton-BeeMMFF_jso-unsplash.jpg',
+  'assets/mike-meyers--haAxbjiHds-unsplash.jpg',
+  'assets/alex-gruber-9f55wJpnCwY-unsplash.jpg',
+  'assets/33.PNG',
+  'assets/umberto-GQ4VBpgPzik-unsplash.jpg',
+  'assets/neenu-vimalkumar-S2oy0RCkORY-unsplash.jpg',
+  'assets/c-d-x-PDX_a_82obo-unsplash.jpg',
+  'assets/eee.jpg',
+  'assets/29.jpg',
+  'assets/11.PNG',
+];
+
+String selectedClub = 'social';
 
 List<String> clubTypes = [
   'skill',
@@ -36,136 +63,89 @@ class _ClubsScreenState extends State<ClubsScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    final title = 'Clubs';
 
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Clubs'),
-        centerTitle: true,
-      ),
       //TODO: design clubs screen
-      body: ListView(
-        children: <Widget>[
-          Stack(
-            children: <Widget>[
-              Hero(
-                tag: '3',
-//                child: ImageSlider(
-//                  heightt: 0.5,
-//                  imagePath: 'Mix',
-//                  imageList: [
-//                    '1.PNG',
-//                    '2.PNG',
-//                    '3.PNG',
-//                    '4.PNG',
-//                    '5.PNG',
-//                    '6.PNG',
-//                    '7.PNG',
-//                    '8.PNG',
-//                    '9.PNG',
-//                    '10.PNG',
-//                    '11.PNG',
-//                    '12.PNG',
-//                    '13.PNG',
-//                    '14.PNG',
-//                    '15.PNG',
-//                    '16.PNG',
-//                    '17.PNG',
-//                    '18.PNG',
-//                    '19.PNG',
-//                    '20.PNG',
-//                    '21.PNG',
-//                    '22.PNG',
-//                    '23.PNG',
-//                    '24.PNG',
-//                    '25.PNG',
-//                  ],
-//                ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: MyScrollView(
+          title: title,
+          backgroundWidget: Image.asset(
+            "assets/mike-meyers-IJyXoyGmiZY-unsplash.jpg",
+            fit: BoxFit.cover,
+          ),
+          height: size.height / 2.5,
+          leadingWidget: IconButton(
+            icon: Icon(
+              Icons.arrow_back_ios,
+              color: kPrimaryColor,
+            ),
+            tooltip: 'back',
+            onPressed: () {
+              Navigator.pop(context);
+            },
+          ),
+          actionsList: <Widget>[
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: DropdownButton<String>(
+                value: selectedClub,
+                onChanged: (value) {},
+                items: getDropdownItem(),
               ),
-              Positioned(
-                right: 10,
-                top: 10,
-                child: Container(
-                  height: 75,
-                  width: 75,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(15),
+            ),
+          ],
+          bottom: null,
+          child: SliverChildBuilderDelegate(
+            (context, position) => Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Container(
+                padding: EdgeInsets.only(top: 4, bottom: 4),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                        color: Colors.black.withOpacity(0.23),
+                        blurRadius: 10,
+                        offset: Offset(0, 5))
+                  ],
+                  borderRadius: BorderRadius.all(Radius.circular(25)),
+                ),
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage(images[position]),
+                          fit: BoxFit.fill,
+                        ),
+                        //color: backgroundColor,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(25),
+                            bottomLeft: Radius.circular(25)),
+                      ),
+                      height: 150,
+                      width: 170,
+                      //child: Image.asset('assets/101.png'),
                     ),
-                    border: Border.all(
-                      color: kPrimaryColor,
-                      style: BorderStyle.solid,
+                    Padding(
+                      padding: EdgeInsets.only(left: 8.0, top: 100),
+                      child: Align(
+                        alignment: Alignment.bottomRight,
+                        child: Text(
+                          sendersList[position],
+                          style: TextStyle(fontSize: 21, color: Colors.black),
+                        ),
+                      ),
                     ),
-                    image: DecorationImage(
-                      image: AssetImage('assets/bb8.jpg'),
-                      fit: BoxFit.fill,
-                    ),
-                  ),
-                  child: DropdownButton<String>(
-                    value: selectedClub,
-                    onChanged: (value) {},
-                    items: getDropdownItem(),
-                  ),
+                  ],
                 ),
               ),
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0,
-                child: Text(
-                  'Acquire, Exibit, Enhance your skills through the Following Entrepreneural Clubs',
-                  style: TextStyle(
-                    fontSize: 28,
-                    color: Colors.white,
-                  ),
-                ),
-              )
-            ],
+            ),
+            childCount: sendersList.length,
           ),
-          CustomScreenTile(
-            text: 'Fashion Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Agro Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Beauty Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Home Makers Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Bakers Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Aeshetics Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Sports Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Entertainment Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Literary Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Masters Chef Club',
-            icon: Icons.collections,
-          ),
-          CustomScreenTile(
-            text: 'Techical Club',
-            icon: Icons.collections,
-          ),
-        ],
+        ),
       ),
       drawer: Drawer(
         child: Container(
@@ -203,3 +183,51 @@ class _ClubsScreenState extends State<ClubsScreen> {
     );
   }
 }
+
+//ListView(
+//         children: <Widget>[
+//           Stack(
+//             children: <Widget>[
+//               Positioned(
+//                 right: 10,
+//                 top: 10,
+//                 child: Container(
+//                   height: 75,
+//                   width: 75,
+//                   decoration: BoxDecoration(
+//                     borderRadius: BorderRadius.all(
+//                       Radius.circular(15),
+//                     ),
+//                     border: Border.all(
+//                       color: kPrimaryColor,
+//                       style: BorderStyle.solid,
+//                     ),
+//                     image: DecorationImage(
+//                       image: AssetImage('assets/bb8.jpg'),
+//                       fit: BoxFit.fill,
+//                     ),
+//                   ),
+//                   child: DropdownButton<String>(
+//                     value: selectedClub,
+//                     onChanged: (value) {},
+//                     items: getDropdownItem(),
+//                   ),
+//                 ),
+//               ),
+//               Positioned(
+//                 left: 0,
+//                 right: 0,
+//                 bottom: 0,
+//                 child: Text(
+//                   'Acquire, Exibit, Enhance your skills through the Following Entrepreneural Clubs',
+//                   style: TextStyle(
+//                     fontSize: 28,
+//                     color: Colors.white,
+//                   ),
+//                 ),
+//               )
+//             ],
+//           ),
+//
+//         ],
+//       ),
