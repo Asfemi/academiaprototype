@@ -29,7 +29,7 @@ class GeneralRow extends StatelessWidget {
       width: size.width,
       margin: EdgeInsets.all(12),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
 //                  Todo: most probably use image icon.
           GestureDetector(
@@ -38,46 +38,46 @@ class GeneralRow extends StatelessWidget {
               children: <Widget>[
                 Icon(
                   icon1,
-                  size: 40,
-                  color: Colors.black,
+                  size: 30,
+                  color: Colors.white,
                 ),
                 Text(
                   text1,
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.white54, fontSize: 12),
                 ),
               ],
             ),
           ),
-          Spacer(),
+
           GestureDetector(
             onTap: ontap2,
             child: Column(
               children: <Widget>[
                 Icon(
                   icon2,
-                  size: 40,
-                  color: Colors.black,
+                  size: 30,
+                  color: Colors.white,
                 ),
                 Text(
                   text2,
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.white54, fontSize: 12),
                 ),
               ],
             ),
           ),
-          Spacer(),
+
           GestureDetector(
             onTap: ontap3,
             child: Column(
               children: <Widget>[
                 Icon(
                   icon3,
-                  size: 40,
-                  color: Colors.black,
+                  size: 30,
+                  color: Colors.white,
                 ),
                 Text(
                   text3,
-                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  style: TextStyle(color: Colors.white54, fontSize: 12),
                 ),
               ],
             ),
