@@ -17,7 +17,7 @@ class SwipeNavigation extends StatelessWidget {
     return ScrollNavigation(
       bodyStyle: NavigationBodyStyle(
         background: kBackGroundColor,
-        borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
+        borderRadius: BorderRadius.vertical(bottom: Radius.circular(10)),
       ),
       barStyle: NavigationBarStyle(
         background: kBackGroundColor,

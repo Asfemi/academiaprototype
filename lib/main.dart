@@ -5,6 +5,7 @@ import 'package:academiaprototype/Screens/Faculty/FacultyPage.dart';
 import 'package:academiaprototype/Screens/General/general_Screen.dart';
 import 'package:academiaprototype/Screens/Home.dart';
 import 'package:academiaprototype/Screens/Library/library_Screen.dart';
+import 'package:academiaprototype/Screens/ausa_Screen.dart';
 import 'package:academiaprototype/Screens/classes_Screen.dart';
 import 'package:academiaprototype/Screens/sports_Screen.dart';
 import 'package:academiaprototype/navbar.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
           ClassesScreen.id: (context) => ClassesScreen(),
           FacultyPage.id: (context) => FacultyPage(),
           GeneralScreen.id: (context) => GeneralScreen(),
+          AusaScreen.id: (context) => AusaScreen(),
         });
   }
 }

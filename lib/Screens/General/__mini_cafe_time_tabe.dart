@@ -1,8 +1,8 @@
 import 'package:academiaprototype/Screens/General/table_container.dart';
 import 'package:flutter/material.dart';
 
-class _MiniCafeTimeTabe extends StatelessWidget {
-  const _MiniCafeTimeTabe({
+class MiniCafeTimeTable extends StatelessWidget {
+  const MiniCafeTimeTable({
     Key key,
     @required this.size,
   }) : super(key: key);
