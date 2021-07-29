@@ -1,10 +1,11 @@
 import 'package:academiaprototype/Components/home_box.dart';
 import 'package:academiaprototype/Components/home_widget.dart';
+import 'package:academiaprototype/Screens/Ausa/AusaNavigation.dart';
+import 'package:academiaprototype/Screens/Ausa/ausa_Screen.dart';
 import 'package:academiaprototype/Screens/Clubs/clubs_Screen.dart';
 import 'package:academiaprototype/Screens/Faculty/FacultyPage.dart';
 import 'package:academiaprototype/Screens/General/general_Screen.dart';
 import 'package:academiaprototype/Screens/Library/library_Screen.dart';
-import 'package:academiaprototype/Screens/ausa_Screen.dart';
 import 'package:academiaprototype/Screens/news_widget.dart';
 import 'package:academiaprototype/Screens/sports_Screen.dart';
 import 'package:academiaprototype/constants.dart';
@@ -112,7 +113,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           Navigator.pushNamed(context, FacultyPage.id);
                         },
-                        image: 'assets/umberto-GQ4VBpgPzik-unsplash.jpg',
+                        image:
+                            'assets/trung-pham-quoc-YDWwCkdmcKM-unsplash.jpg',
                         text: 'Faculty',
                         text2: 'department, contact...',
                       ),
@@ -120,13 +122,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.redAccent,
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
-                        light: false,
+                        light: true,
                         tag: '2',
                         onPressed: () {
                           Navigator.pushNamed(context, LibraryScreen.id);
                         },
-                        image:
-                            'assets/matthew-hamilton-BeeMMFF_jso-unsplash.jpg',
+                        image: 'assets/inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg',
                         text: 'Library',
                         text2: 'online, offline books...',
                       ),
@@ -139,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           Navigator.pushNamed(context, ClubsScreen.id);
                         },
-                        image: 'assets/mike-meyers-IJyXoyGmiZY-unsplash.jpg',
+                        image: 'assets/absolutvision-82TpEld0_e4-unsplash.jpg',
                         text: 'Clubs',
                         text2: 'makeup, cooking...',
                       ),
@@ -152,7 +153,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           Navigator.pushNamed(context, SportsScreen.id);
                         },
-                        image: 'assets/mike-meyers--haAxbjiHds-unsplash.jpg',
+                        image: 'assets/sabri-tuzcu-dVhM3o9BVeg-unsplash.jpg',
                         text: 'Sports',
                         text2: 'basketball, football...',
                       ),
@@ -169,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             'assets/neenu-vimalkumar-S2oy0RCkORY-unsplash.jpg',
                         text: 'General',
                         text2: 'cafeterial, maps, hostel...',
-                      ),
+                      ), //general
                       HomeBox(
                         color: Colors.yellow.shade700,
                         icon2: Icons.drafts_sharp,
@@ -177,12 +178,12 @@ class _HomeScreenState extends State<HomeScreen> {
                         light: true,
                         tag: '4',
                         onPressed: () {
-                          Navigator.pushNamed(context, AusaScreen.id);
+                          Navigator.pushNamed(context, AusaNavigation.id);
                         },
-                        image: 'assets/c-d-x-PDX_a_82obo-unsplash.jpg',
-                        text: 'Ausa',
+                        image: 'assets/june-heredia--9LHFWv5l-M-unsplash.jpg',
+                        text: 'Students life',
                         text2: 'dinner, welfare...',
-                      ),
+                      ), //Students life
                       // HomeTab(
                       //   size: size,
                       //   color: Colors.yellow,
@@ -473,7 +474,7 @@ class _HomeScreenState extends State<HomeScreen> {
                           // Navigator.pushNamed(context, AusaScreen.id);
                         },
                         image: 'assets/c-d-x-PDX_a_82obo-unsplash.jpg',
-                        text: 'Ausa',
+                        text: 'Screens.Ausa',
                         text2: 'dinner, welfare...',
                       ),
                       // HomeTab(
@@ -789,7 +790,7 @@ Widget dashboard(context) {
               Navigator.pushNamed(context, AusaScreen.id);
             },
             image: 'assets/fol.jpg',
-            text: 'Ausa',
+            text: 'Screens.Ausa',
             text2: 'dinner, welfare...',
           ),
           Expanded(flex: 1, child: Container()),
