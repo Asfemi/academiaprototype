@@ -11,6 +11,7 @@ import 'package:academiaprototype/Screens/sports_Screen.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 
 class HomeScreen extends StatefulWidget {
   static String id = 'home_Screen';
@@ -23,6 +24,8 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    bool deactivate = false;
+
     return SafeArea(
       child: Scaffold(
         backgroundColor: Colors.grey.shade100,
@@ -71,6 +74,14 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 20),
                 Home_Widget(
+                  height: deactivate ? 0.0 : size.shortestSide,
+                  onPressed: () {
+                    setState(() {
+                      print('iwas pressed');
+                      deactivate = true;
+                      print('iwas pressed2');
+                    });
+                  },
                   color: Colors.black,
                   image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
                   heading: 'Get more from your money',
@@ -107,8 +118,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       HomeBox(
                         light: true,
                         color: Colors.black,
-                        icon2: Icons.drafts_sharp,
-                        text3: 'm3m3',
+                        icon2: LineIcons.fighterJet,
+                        text3: 'Eng',
                         tag: '1',
                         onPressed: () {
                           Navigator.pushNamed(context, FacultyPage.id);
@@ -120,8 +131,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                       HomeBox(
                         color: Colors.redAccent,
-                        icon2: Icons.drafts_sharp,
-                        text3: 'm3m3',
+                        icon2: LineIcons.bomb,
+                        text3: 'PG',
                         light: true,
                         tag: '2',
                         onPressed: () {
@@ -132,9 +143,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         text2: 'online, offline books...',
                       ),
                       HomeBox(
-                        color: Colors.yellow,
-                        icon2: Icons.drafts_sharp,
-                        text3: 'm3m3',
+                        color: Colors.black,
+                        icon2: LineIcons.smilingFace,
+                        text3: 'Open',
                         light: false,
                         tag: '3',
                         onPressed: () {
@@ -145,9 +156,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         text2: 'makeup, cooking...',
                       ),
                       HomeBox(
-                        color: Colors.yellowAccent,
-                        icon2: Icons.drafts_sharp,
-                        text3: 'm3m3',
+                        color: Colors.red,
+                        icon2: LineIcons.footballBall,
+                        text3: 'Kick',
                         light: false,
                         tag: '6',
                         onPressed: () {
@@ -158,9 +169,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         text2: 'basketball, football...',
                       ),
                       HomeBox(
-                        color: Colors.black,
-                        icon2: Icons.drafts_sharp,
-                        text3: 'm3m3',
+                        color: Colors.green,
+                        icon2: LineIcons.lightbulb,
+                        text3: 'Sure',
                         light: true,
                         tag: '5',
                         onPressed: () {
@@ -172,9 +183,9 @@ class _HomeScreenState extends State<HomeScreen> {
                         text2: 'cafeterial, maps, hostel...',
                       ), //general
                       HomeBox(
-                        color: Colors.yellow.shade700,
-                        icon2: Icons.drafts_sharp,
-                        text3: 'm3m3',
+                        color: Colors.black,
+                        icon2: LineIcons.weebly,
+                        text3: 'We',
                         light: true,
                         tag: '4',
                         onPressed: () {
@@ -398,7 +409,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       HomeBox(
-                        light: true,
+                        light: false,
                         color: Colors.black,
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
@@ -406,7 +417,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         onPressed: () {
                           //Navigator.pushNamed(context, FacultyScreen.id);
                         },
-                        image: 'assets/umberto-GQ4VBpgPzik-unsplash.jpg',
+                        image: 'assets/bermix-studio-b8mwvvFs8Ak-unsplash.jpg',
                         text: 'Faculty',
                         text2: 'department, contact...',
                       ),

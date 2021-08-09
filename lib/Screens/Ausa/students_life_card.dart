@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
 
-class StudentsLifeCard extends StatelessWidget {
+class StudentsLifeCard extends StatefulWidget {
   const StudentsLifeCard({
     Key key,
     @required this.size,
@@ -20,19 +20,24 @@ class StudentsLifeCard extends StatelessWidget {
   final String text;
   final String dayText;
   final String image;
-  // final Size size;
-  // final Size size;
 
   @override
+  _StudentsLifeCardState createState() => _StudentsLifeCardState();
+}
+
+class _StudentsLifeCardState extends State<StudentsLifeCard> {
+  @override
   Widget build(BuildContext context) {
+    bool fav = false;
+
     return Container(
       margin: EdgeInsets.only(left: 5, right: 25),
-      height: size.height * 0.55,
-      width: size.width * 0.7,
+      height: widget.size.height * 0.55,
+      width: widget.size.width * 0.7,
       decoration: BoxDecoration(
         // color: Colors.pink,
         image: DecorationImage(
-          image: AssetImage(image),
+          image: AssetImage(widget.image),
           fit: BoxFit.cover,
         ),
         borderRadius: BorderRadius.all(
@@ -47,7 +52,7 @@ class StudentsLifeCard extends StatelessWidget {
               child: Column(
                 children: [
                   Text(
-                    day,
+                    widget.day,
                     style: TextStyle(
                       fontSize: 18,
                       color: Colors.white,
@@ -55,14 +60,14 @@ class StudentsLifeCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    month,
+                    widget.month,
                     style: TextStyle(
                       fontSize: 14,
                       color: Colors.white54,
                     ),
                   ),
                   Text(
-                    year,
+                    widget.year,
                     style: TextStyle(
                       fontSize: 12,
                       color: Colors.grey.shade100,
@@ -73,16 +78,24 @@ class StudentsLifeCard extends StatelessWidget {
           Positioned(
               top: 10,
               right: 10,
-              child: Icon(
-                LineIcons.heart,
-                color: Colors.white,
-                size: 25,
+              child: IconButton(
+                icon: Icon(
+                  fav ? LineIcons.heartAlt : LineIcons.heart,
+                  color: Colors.white,
+                  size: 25,
+                ),
+                onPressed: () {
+                  print('i was click one time');
+                  setState(() {
+                    fav = !fav;
+                  });
+                },
               )),
           Positioned(
               bottom: 65,
               left: 20,
               child: Text(
-                text,
+                widget.text,
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.white,
@@ -93,7 +106,7 @@ class StudentsLifeCard extends StatelessWidget {
               bottom: 40,
               left: 20,
               child: Text(
-                dayText,
+                widget.dayText,
                 style: TextStyle(
                   fontSize: 22,
                   color: Colors.white,

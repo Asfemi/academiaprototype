@@ -8,12 +8,16 @@ class Home_Widget extends StatefulWidget {
     this.image,
     this.about,
     this.heading,
+    this.onPressed,
+    this.height,
   });
 
   final Color color;
   final String heading;
   final String about;
   final String image;
+  final Function onPressed;
+  final double height;
 
   @override
   _Home_WidgetState createState() => _Home_WidgetState();
@@ -24,8 +28,10 @@ class _Home_WidgetState extends State<Home_Widget> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    bool deactivate = false;
+
     return Container(
-      height: size.shortestSide,
+      height: widget.height,
       width: size.shortestSide,
       child: Stack(
         children: [
@@ -76,7 +82,7 @@ class _Home_WidgetState extends State<Home_Widget> {
                 Icons.close,
                 color: Colors.white,
               ),
-              onPressed: () {},
+              onPressed: widget.onPressed,
             ),
           ),
           Positioned(

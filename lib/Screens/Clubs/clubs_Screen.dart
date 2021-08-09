@@ -101,7 +101,7 @@ class _ClubsScreenState extends State<ClubsScreen> {
             (context, position) => Padding(
               padding: const EdgeInsets.all(8.0),
               child: Container(
-                padding: EdgeInsets.only(top: 4, bottom: 4),
+                //padding: EdgeInsets.only(top: 4, bottom: 4),
                 decoration: BoxDecoration(
                   color: Colors.white,
                   boxShadow: [

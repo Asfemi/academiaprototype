@@ -48,7 +48,7 @@ class HomeBox extends StatelessWidget {
               decoration: BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(image),
-                  fit: BoxFit.fill,
+                  fit: BoxFit.cover,
                 ),
                 borderRadius: BorderRadius.all(
                   Radius.circular(10),

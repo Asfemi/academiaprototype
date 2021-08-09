@@ -3,6 +3,7 @@ import 'package:academiaprototype/constants.dart';
 //import 'package:academiaprototype/Screens/Faculty/department_Screen.dart';
 
 import 'package:flutter/material.dart';
+import 'package:line_icons/line_icons.dart';
 
 class FacultyPage extends StatefulWidget {
   static String id = 'facultypage';
@@ -10,6 +11,8 @@ class FacultyPage extends StatefulWidget {
   @override
   _FacultyPageState createState() => _FacultyPageState();
 }
+
+bool fabActive = false;
 
 List<String> sendersList = [
   'Fbms vows to defeat law tomorrow',
@@ -45,95 +48,124 @@ class _FacultyPageState extends State<FacultyPage> {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          //Navigator.pushNamed(context, DepartmentScreen.id);
+          setState(() {
+            fabActive = !fabActive;
+          });
         },
-        child: Icon(Icons.arrow_back),
+        child:
+            fabActive ? Icon(Icons.arrow_back) : Icon(LineIcons.stepBackward),
         backgroundColor: kPrimaryColor,
       ),
       //TODO: set security rules and allow only users with selected faculties to see their faculty page
-      body: MyScrollView(
-        title: title,
-        backgroundWidget: Image.asset(
-          "assets/foe.jpg",
-          fit: BoxFit.cover,
-        ),
-        height: size.height / 2.5,
-        leadingWidget: IconButton(
-          icon: Icon(
-            Icons.arrow_back_ios,
-            color: kPrimaryColor,
-          ),
-          tooltip: 'back',
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        actionsList: null,
-        bottom: null,
-        child: SliverChildBuilderDelegate(
-          (context, position) => Column(
-            children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body: Stack(
+        children: [
+          MyScrollView(
+            title: title,
+            backgroundWidget: Image.asset(
+              "assets/foe.jpg",
+              fit: BoxFit.cover,
+            ),
+            height: size.height / 2.5,
+            leadingWidget: IconButton(
+              icon: Icon(
+                Icons.arrow_back_ios,
+                color: kPrimaryColor,
+              ),
+              tooltip: 'back',
+              onPressed: () {
+                Navigator.pop(context);
+              },
+            ),
+            actionsList: null,
+            bottom: null,
+            child: SliverChildBuilderDelegate(
+              (context, position) => Column(
                 children: <Widget>[
-                  Expanded(
-                    flex: 4,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(12.0, 12.0, 12.0, 6.0),
-                          child: Text(
-                            sendersList[position],
-                            style: TextStyle(
-                                fontSize: 14.0, fontWeight: FontWeight.bold),
-                          ),
-                        ),
-                        Padding(
-                          padding:
-                              const EdgeInsets.fromLTRB(12.0, 6.0, 12.0, 12.0),
-                          child: Text(
-                            subjectList[position],
-                            style: TextStyle(fontSize: 11.0),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Padding(
-                      padding: const EdgeInsets.all(2.0),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          Text(
-                            "5m",
-                            style: TextStyle(color: Colors.grey),
-                          ),
-                          Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.star_border,
-                              size: 20.0,
-                              color: Colors.grey,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Expanded(
+                        flex: 4,
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  12.0, 12.0, 12.0, 6.0),
+                              child: Text(
+                                sendersList[position],
+                                style: TextStyle(
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
-                          ),
-                        ],
+                            Padding(
+                              padding: const EdgeInsets.fromLTRB(
+                                  12.0, 6.0, 12.0, 12.0),
+                              child: Text(
+                                subjectList[position],
+                                style: TextStyle(fontSize: 11.0),
+                              ),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
+                      Expanded(
+                        flex: 1,
+                        child: Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Text(
+                                "5m",
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.star_border,
+                                  size: 20.0,
+                                  color: Colors.grey,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
+                  Divider(
+                    height: 2.0,
+                    color: Colors.grey,
+                  )
                 ],
               ),
-              Divider(
-                height: 2.0,
-                color: Colors.grey,
-              )
-            ],
+              childCount: subjectList.length,
+            ),
           ),
-          childCount: subjectList.length,
-        ),
+          BuildPositioned(
+            icon: Icons.question_answer,
+            bottom: 80,
+          ),
+          BuildPositioned(
+            icon: Icons.image,
+            bottom: 120,
+          ),
+          BuildPositioned(
+            icon: Icons.support_agent,
+            bottom: 160,
+          ),
+          BuildPositioned(
+            icon: Icons.people_rounded,
+            bottom: 200,
+          ),
+          BuildPositioned(
+            icon: Icons.lightbulb,
+            bottom: 240,
+          ),
+          //todo: use animatedPosition to animate these widgets display
+        ],
       ),
       //Todo: Setup faculty drawer
       drawer: Drawer(
@@ -169,6 +201,48 @@ class _FacultyPageState extends State<FacultyPage> {
                 title: Text('faculty:'),
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class BuildPositioned extends StatelessWidget {
+  const BuildPositioned({
+    this.width,
+    this.height,
+    this.bottom,
+    this.left,
+    this.right,
+    this.top,
+    this.icon,
+  });
+
+  final double right;
+  final double left;
+  final double top;
+  final double bottom;
+  final double width;
+  final double height;
+  final IconData icon;
+
+  @override
+  Widget build(BuildContext context) {
+    return Positioned(
+      right: 25,
+      bottom: bottom,
+      child: ClipOval(
+        child: Container(
+          height: fabActive ? 28 : 0,
+          width: 28,
+          color: kPrimaryColor,
+          child: Center(
+            child: Icon(
+              icon,
+              size: 15,
+              color: Colors.white,
+            ),
           ),
         ),
       ),

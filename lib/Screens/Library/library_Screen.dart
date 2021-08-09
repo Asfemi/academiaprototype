@@ -49,6 +49,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  //TODO: fix search bar
                   Expanded(
                     flex: seacrhActive ? 1 : 5,
                     child: seacrhActive
@@ -101,10 +102,13 @@ class _LibraryScreenState extends State<LibraryScreen> {
                                 ),
                                 enabledBorder: InputBorder.none,
                                 focusedBorder: InputBorder.none,
-                                suffixIcon: LineIcon(
-                                  LineIcons.search,
-                                  color: kPrimaryColor,
-                                  size: 35,
+                                suffixIcon: IconButton(
+                                  icon: LineIcon(
+                                    LineIcons.search,
+                                    color: kPrimaryColor,
+                                    size: 30,
+                                  ),
+                                  onPressed: () {},
                                 ),
                               ),
                             ),
@@ -112,7 +116,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                         : IconButton(
                             icon: LineIcon(
                               LineIcons.searchPlus,
-                              size: 35,
+                              size: 28,
                               color: kPrimaryColor,
                             ),
                             tooltip: 'search',
