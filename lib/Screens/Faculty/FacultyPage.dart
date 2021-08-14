@@ -196,7 +196,7 @@ class _FacultyPageState extends State<FacultyPage> {
               Navigator.pushNamed(context, FacultyAluminni.id);
             },
             bottom: size.shortestSide * 0.34,
-            right: size.shortestSide * 0.01,
+            right: size.shortestSide * 0.02,
           ),
           BuildPositioned(
             icon: Icons.image,
@@ -227,7 +227,7 @@ class _FacultyPageState extends State<FacultyPage> {
             route: () {
               Navigator.pushNamed(context, FacultyGenInfo.id);
             },
-            bottom: size.shortestSide * 0.01,
+            bottom: size.shortestSide * 0.02,
             right: size.shortestSide * 0.34,
           ),
           //todo: use animatedPosition to animate these widgets display

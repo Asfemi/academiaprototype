@@ -10,13 +10,14 @@ class CustomScreenTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Padding(
       padding: const EdgeInsets.fromLTRB(4.0, 4.0, 2.0, 4.0),
       child: GestureDetector(
         onTap: ontap,
         child: Container(
-          height: 200,
-          width: 120,
+          height: size.height * 0.05,
+          width: size.shortestSide,
           decoration: BoxDecoration(
             color: Colors.white,
             boxShadow: [
@@ -36,11 +37,11 @@ class CustomScreenTile extends StatelessWidget {
                 Icon(
                   icon,
                   color: Colors.black,
-                  size: 30,
+                  size: 14,
                 ),
                 Text(
                   text,
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 14),
                 )
               ],
             ),
