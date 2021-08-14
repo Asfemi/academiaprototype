@@ -1,6 +1,8 @@
 import 'package:academiaprototype/Components/general_row.dart';
 import 'package:academiaprototype/Screens/General/GenGallery.dart';
 import 'package:academiaprototype/Screens/General/MapsScreen.dart';
+import 'package:academiaprototype/Screens/General/Review.dart';
+import 'package:academiaprototype/Screens/General/Security.dart';
 import 'package:academiaprototype/Screens/General/Shop/Business.dart';
 import 'package:academiaprototype/Screens/General/TimeTable.dart';
 import 'package:academiaprototype/Screens/General/__mini_cafe_time_tabe.dart';
@@ -253,10 +255,14 @@ class _GeneralScreenState extends State<GeneralScreen> {
                       },
                       text2: 'Reviews',
                       icon2: LineIcons.check,
-                      ontap2: () {},
+                      ontap2: () {
+                        Navigator.pushNamed(context, ReviewPage.id);
+                      },
                       text3: 'Security',
                       icon3: LineIcons.userLock,
-                      ontap3: () {},
+                      ontap3: () {
+                        Navigator.pushNamed(context, Security.id);
+                      },
                     ),
                   ],
                 ),
@@ -295,39 +301,3 @@ void showMainDialog<T>({BuildContext context, Widget child}) {
     }
   });
 }
-
-// Todo: set up proper general image for general page
-//             Hero(
-//               tag: '5',
-// //              child: ImageSlider(
-// //                heightt: 0.4,
-// //                imagePath: 'Mix',
-// //                imageList: [
-// //                  '1.PNG',
-// //                  '2.PNG',
-// //                  '3.PNG',
-// //                  '4.PNG',
-// //                  '5.PNG',
-// //                  '6.PNG',
-// //                  '7.PNG',
-// //                  '8.PNG',
-// //                  '9.PNG',
-// //                  '10.PNG',
-// //                  '11.PNG',
-// //                  '12.PNG',
-// //                  '13.PNG',
-// //                  '14.PNG',
-// //                  '15.PNG',
-// //                  '16.PNG',
-// //                  '17.PNG',
-// //                  '18.PNG',
-// //                  '19.PNG',
-// //                  '20.PNG',
-// //                  '21.PNG',
-// //                  '22.PNG',
-// //                  '23.PNG',
-// //                  '24.PNG',
-// //                  '25.PNG',
-// //                ],
-// //              ),
-//             ),

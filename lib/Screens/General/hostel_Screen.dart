@@ -1,3 +1,4 @@
+import 'package:academiaprototype/Components/ComingSoon.dart';
 import 'package:flutter/material.dart';
 
 class HostelScreen extends StatefulWidget {
@@ -10,6 +11,6 @@ class HostelScreen extends StatefulWidget {
 class _HostelScreenState extends State<HostelScreen> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Material(child: ComingSoon(no: 2, theme: false));
   }
 }

@@ -39,6 +39,30 @@ List<String> subjectList = [
   'For the fourth time in a row he has done it again...',
 ];
 
+String selectedDept = 'Mech';
+
+List<String> department = [
+  'Mech',
+  'Elect',
+  'Civil',
+  'Agric',
+];
+
+List<DropdownMenuItem> getDropdownItem() {
+  List<DropdownMenuItem<String>> dropdownItems = [];
+
+  for (String dept in department) {
+    var newItem = DropdownMenuItem(
+      child: Text(dept),
+      value: dept,
+    );
+
+    dropdownItems.add(newItem);
+  }
+
+  return dropdownItems;
+}
+
 class _FacultyPageState extends State<FacultyPage> {
   @override
   Widget build(BuildContext context) {
@@ -74,9 +98,26 @@ class _FacultyPageState extends State<FacultyPage> {
               tooltip: 'back',
               onPressed: () {
                 Navigator.pop(context);
+                setState(() {
+                  fabActive = !fabActive;
+                });
               },
             ),
-            actionsList: null,
+            actionsList: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: DropdownButton<String>(
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                  ),
+                  iconDisabledColor: Colors.black,
+                  iconEnabledColor: kPrimaryColor,
+                  value: selectedDept,
+                  onChanged: (value) {},
+                  items: getDropdownItem(),
+                ),
+              ),
+            ],
             bottom: null,
             child: SliverChildBuilderDelegate(
               (context, position) => Column(
@@ -146,23 +187,28 @@ class _FacultyPageState extends State<FacultyPage> {
           ),
           BuildPositioned(
             icon: Icons.question_answer,
-            bottom: 80,
+            bottom: size.shortestSide * 0.34,
+            right: size.shortestSide * 0.01,
           ),
           BuildPositioned(
             icon: Icons.image,
-            bottom: 120,
+            bottom: size.shortestSide * 0.31,
+            right: size.shortestSide * 0.15,
           ),
           BuildPositioned(
             icon: Icons.support_agent,
-            bottom: 160,
+            bottom: size.shortestSide * 0.25,
+            right: size.shortestSide * 0.25,
           ),
           BuildPositioned(
             icon: Icons.people_rounded,
-            bottom: 200,
+            bottom: size.shortestSide * 0.15,
+            right: size.shortestSide * 0.31,
           ),
           BuildPositioned(
             icon: Icons.lightbulb,
-            bottom: 240,
+            bottom: size.shortestSide * 0.01,
+            right: size.shortestSide * 0.34,
           ),
           //todo: use animatedPosition to animate these widgets display
         ],
@@ -230,12 +276,12 @@ class BuildPositioned extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Positioned(
-      right: 25,
+      right: right,
       bottom: bottom,
       child: ClipOval(
         child: Container(
-          height: fabActive ? 28 : 0,
-          width: 28,
+          height: fabActive ? 30 : 0,
+          width: 30,
           color: kPrimaryColor,
           child: Center(
             child: Icon(

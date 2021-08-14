@@ -1,15 +1,13 @@
+import 'package:academiaprototype/Components/ComingSoon.dart';
 import 'package:flutter/material.dart';
 
-class ChapelScreen extends StatefulWidget {
+//TODO: make this in a later version a statefull widget
+
+class ChapelScreen extends StatelessWidget {
   static String id = 'Chapel_Screen';
 
   @override
-  _ChapelScreenState createState() => _ChapelScreenState();
-}
-
-class _ChapelScreenState extends State<ChapelScreen> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Material(child: ComingSoon(no: 2, theme: false));
   }
 }
