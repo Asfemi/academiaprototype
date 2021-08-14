@@ -1,4 +1,9 @@
 import 'package:academiaprototype/Components/MyScrollView.dart';
+import 'package:academiaprototype/Screens/Faculty/Department/department_Screen.dart';
+import 'package:academiaprototype/Screens/Faculty/aluminni.dart';
+import 'package:academiaprototype/Screens/Faculty/facultyGallery.dart';
+import 'package:academiaprototype/Screens/Faculty/generalInfo.dart';
+import 'package:academiaprototype/Screens/Faculty/notableWorks.dart';
 import 'package:academiaprototype/constants.dart';
 //import 'package:academiaprototype/Screens/Faculty/department_Screen.dart';
 
@@ -99,7 +104,7 @@ class _FacultyPageState extends State<FacultyPage> {
               onPressed: () {
                 Navigator.pop(context);
                 setState(() {
-                  fabActive = !fabActive;
+                  fabActive = false;
                 });
               },
             ),
@@ -187,30 +192,46 @@ class _FacultyPageState extends State<FacultyPage> {
           ),
           BuildPositioned(
             icon: Icons.question_answer,
+            route: () {
+              Navigator.pushNamed(context, FacultyAluminni.id);
+            },
             bottom: size.shortestSide * 0.34,
             right: size.shortestSide * 0.01,
           ),
           BuildPositioned(
             icon: Icons.image,
+            route: () {
+              Navigator.pushNamed(context, NotableWorks.id);
+            },
             bottom: size.shortestSide * 0.31,
             right: size.shortestSide * 0.15,
           ),
           BuildPositioned(
             icon: Icons.support_agent,
+            route: () {
+              Navigator.pushNamed(context, DepartmentScreen.id);
+            },
             bottom: size.shortestSide * 0.25,
             right: size.shortestSide * 0.25,
           ),
           BuildPositioned(
             icon: Icons.people_rounded,
+            route: () {
+              Navigator.pushNamed(context, FacultyGallery.id);
+            },
             bottom: size.shortestSide * 0.15,
             right: size.shortestSide * 0.31,
           ),
           BuildPositioned(
             icon: Icons.lightbulb,
+            route: () {
+              Navigator.pushNamed(context, FacultyGenInfo.id);
+            },
             bottom: size.shortestSide * 0.01,
             right: size.shortestSide * 0.34,
           ),
           //todo: use animatedPosition to animate these widgets display
+          //todo: add functionality to tap outside the popButtons to close them
         ],
       ),
       //Todo: Setup faculty drawer
@@ -255,15 +276,15 @@ class _FacultyPageState extends State<FacultyPage> {
 }
 
 class BuildPositioned extends StatelessWidget {
-  const BuildPositioned({
-    this.width,
-    this.height,
-    this.bottom,
-    this.left,
-    this.right,
-    this.top,
-    this.icon,
-  });
+  const BuildPositioned(
+      {this.width,
+      this.height,
+      this.bottom,
+      this.left,
+      this.right,
+      this.top,
+      this.icon,
+      this.route});
 
   final double right;
   final double left;
@@ -272,6 +293,7 @@ class BuildPositioned extends StatelessWidget {
   final double width;
   final double height;
   final IconData icon;
+  final Function route;
 
   @override
   Widget build(BuildContext context) {
@@ -284,10 +306,13 @@ class BuildPositioned extends StatelessWidget {
           width: 30,
           color: kPrimaryColor,
           child: Center(
-            child: Icon(
-              icon,
-              size: 15,
-              color: Colors.white,
+            child: IconButton(
+              icon: Icon(
+                icon,
+                size: 15,
+                color: Colors.white,
+              ),
+              onPressed: route,
             ),
           ),
         ),

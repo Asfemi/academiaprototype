@@ -7,6 +7,7 @@ import 'package:academiaprototype/Screens/Faculty/Department/departGallery.dart'
 import 'package:academiaprototype/Screens/Faculty/Department/department_Screen.dart';
 import 'package:academiaprototype/Screens/Faculty/Department/depcontacts.dart';
 import 'package:academiaprototype/Screens/Faculty/FacultyPage.dart';
+import 'package:academiaprototype/Screens/Faculty/aluminni.dart';
 import 'package:academiaprototype/Screens/Faculty/calender.dart';
 import 'package:academiaprototype/Screens/Faculty/facultyGallery.dart';
 import 'package:academiaprototype/Screens/Faculty/generalInfo.dart';
@@ -62,6 +63,7 @@ class MyApp extends StatelessWidget {
           FacultyGallery.id: (context) => FacultyGallery(),
           FacultyGenInfo.id: (context) => FacultyGenInfo(),
           NotableWorks.id: (context) => NotableWorks(),
+          FacultyAluminni.id: (context) => FacultyAluminni(),
           // ***Department Screen Routes***
           DepartmentScreen.id: (context) => DepartmentScreen(),
           DepartmentContacts.id: (context) => DepartmentContacts(),
