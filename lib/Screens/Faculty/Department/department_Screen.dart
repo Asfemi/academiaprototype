@@ -1,6 +1,7 @@
 //import 'package:academia/Components/Custom_screen_tile.dart';
 import 'package:academiaprototype/Components/Custom_screen_tile.dart';
 import 'package:academiaprototype/Screens/General/__mini_cafe_time_tabe.dart';
+import 'package:academiaprototype/constants.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -20,6 +21,11 @@ class _DepartmentScreenState extends State<DepartmentScreen> {
         //leading: Icon(Icons.menu),
         title: Text('Department of Mech Engr'),
         centerTitle: true,
+      ),
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: kPrimaryColor,
+        child: Icon(Icons.add),
+        onPressed: () {},
       ),
       body: SizedBox(
         height: size.height,

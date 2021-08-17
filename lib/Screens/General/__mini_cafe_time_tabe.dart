@@ -303,58 +303,58 @@ class _DepartmentTimeTableState extends State<DepartmentTimeTable> {
             ),
             TableContainer(
               size: widget.size,
-              color: Colors.red.shade400,
-              text: 'swallow',
+              color: Colors.greenAccent,
+              text: 'Age 300',
+            ),
+            TableContainer(
+              size: widget.size,
+              color: Colors.greenAccent,
+              text: 'Age 300',
+            ),
+            TableContainer(
+              size: widget.size,
+              color: Colors.purple,
+              text: 'Eee 342',
+            ),
+            TableContainer(
+              size: widget.size,
+              color: Colors.purple,
+              text: 'Eee 342',
+            ),
+            TableContainer(
+              size: widget.size,
+              color: Colors.white,
+              text: 'Free',
+            ),
+            TableContainer(
+              size: widget.size,
+              color: Colors.white,
+              text: 'Free',
+            ),
+            TableContainer(
+              size: widget.size,
+              color: Colors.white,
+              text: 'Free',
+            ),
+            TableContainer(
+              size: widget.size,
+              color: Colors.indigo,
+              text: 'Mee 333',
             ),
             TableContainer(
               size: widget.size,
               color: Colors.blue.shade200,
-              text: 'rice',
+              text: 'Mee 352',
             ),
             TableContainer(
               size: widget.size,
               color: Colors.blue.shade200,
-              text: 'rice',
+              text: 'Mee 352',
             ),
             TableContainer(
               size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
-            ),
-            TableContainer(
-              size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
-            ),
-            TableContainer(
-              size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
-            ),
-            TableContainer(
-              size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
-            ),
-            TableContainer(
-              size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
-            ),
-            TableContainer(
-              size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
-            ),
-            TableContainer(
-              size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
-            ),
-            TableContainer(
-              size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
+              color: Colors.white,
+              text: 'Free',
             ),
           ],
         ),
@@ -392,13 +392,13 @@ class _DepartmentTimeTableState extends State<DepartmentTimeTable> {
             ),
             TableContainer(
               size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
+              color: Colors.white,
+              text: 'Free',
             ),
             TableContainer(
               size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
+              color: Colors.orange,
+              text: 'Ges 222',
             ),
             TableContainer(
               size: widget.size,
@@ -456,8 +456,8 @@ class _DepartmentTimeTableState extends State<DepartmentTimeTable> {
             ),
             TableContainer(
               size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
+              color: Colors.white,
+              text: 'Free',
             ),
             TableContainer(
               size: widget.size,
@@ -520,8 +520,8 @@ class _DepartmentTimeTableState extends State<DepartmentTimeTable> {
             ),
             TableContainer(
               size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
+              color: Colors.white,
+              text: 'Free',
             ),
             TableContainer(
               size: widget.size,
@@ -560,7 +560,12 @@ class _DepartmentTimeTableState extends State<DepartmentTimeTable> {
             TableContainer(
               size: widget.size,
               color: Colors.red.shade400,
-              text: 'swallow',
+              text: 'mee 302',
+            ),
+            TableContainer(
+              size: widget.size,
+              color: Colors.blue.shade200,
+              text: 'mee 342',
             ),
             TableContainer(
               size: widget.size,
@@ -579,13 +584,8 @@ class _DepartmentTimeTableState extends State<DepartmentTimeTable> {
             ),
             TableContainer(
               size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
-            ),
-            TableContainer(
-              size: widget.size,
-              color: Colors.blue.shade200,
-              text: 'rice',
+              color: Colors.white,
+              text: 'Free',
             ),
             TableContainer(
               size: widget.size,
