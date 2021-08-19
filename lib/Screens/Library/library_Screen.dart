@@ -2,8 +2,6 @@
 import 'package:academiaprototype/Components/library_book.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
-import 'package:line_icons/line_icon.dart';
-import 'package:line_icons/line_icons.dart';
 
 class LibraryScreen extends StatefulWidget {
   static String id = 'library_Screen';
@@ -50,82 +48,12 @@ class _LibraryScreenState extends State<LibraryScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   //TODO: fix search bar
-                  Expanded(
-                    flex: seacrhActive ? 1 : 5,
-                    child: seacrhActive
-                        ? IconButton(
-                            icon: LineIcon(
-                              LineIcons.backward,
-                              size: 20,
-                              color: kPrimaryColor,
-                            ),
-                            tooltip: 'back',
-                            onPressed: () {
-                              setState(() {
-                                seacrhActive = !seacrhActive;
-                              });
-                            },
-                          )
-                        : Text(
-                            '$title',
-                            style: TextStyle(
-                              color: kPrimaryColor,
-                              fontSize: 40,
-                            ),
-                          ),
-                  ),
-                  Expanded(
-                    flex: seacrhActive ? 5 : 1,
-                    child: seacrhActive
-                        ? Container(
-                            alignment: Alignment.center,
-                            margin: EdgeInsets.symmetric(horizontal: 4.0),
-                            padding: EdgeInsets.symmetric(horizontal: 8.0),
-                            height: 34,
-                            decoration: BoxDecoration(
-                              color: Colors.grey.shade100,
-                              borderRadius: BorderRadius.circular(20),
-                              boxShadow: [
-                                BoxShadow(
-                                  offset: Offset(0, 5),
-                                  blurRadius: 10,
-                                  color: kPrimaryColor.withOpacity(0.33),
-                                ),
-                              ],
-                            ),
-                            child: TextField(
-                              onChanged: (value) {},
-                              decoration: InputDecoration(
-                                hintText: 'Search and Browser',
-                                hintStyle: TextStyle(
-                                  color: kPrimaryColor,
-                                ),
-                                enabledBorder: InputBorder.none,
-                                focusedBorder: InputBorder.none,
-                                suffixIcon: IconButton(
-                                  icon: LineIcon(
-                                    LineIcons.search,
-                                    color: kPrimaryColor,
-                                    size: 30,
-                                  ),
-                                  onPressed: () {},
-                                ),
-                              ),
-                            ),
-                          )
-                        : IconButton(
-                            icon: LineIcon(
-                              LineIcons.searchPlus,
-                              size: 28,
-                              color: kPrimaryColor,
-                            ),
-                            tooltip: 'search',
-                            onPressed: () {
-                              setState(() {
-                                seacrhActive = !seacrhActive;
-                              });
-                            },
-                          ),
+                  Text(
+                    '$title',
+                    style: TextStyle(
+                      color: kPrimaryColor,
+                      fontSize: 40,
+                    ),
                   ),
                 ],
               ),
@@ -158,6 +86,44 @@ class _LibraryScreenState extends State<LibraryScreen> {
                       //color: Colors.pink,
                       height: size.height * 0.47,
                       width: size.width,
+                    ),
+                    Positioned(
+                      top: 10,
+                      left: 0,
+                      right: 0,
+                      child: Container(
+                        alignment: Alignment.center,
+                        margin: EdgeInsets.symmetric(horizontal: 16.0),
+                        padding: EdgeInsets.symmetric(horizontal: 16.0),
+                        height: 44,
+                        decoration: BoxDecoration(
+                          color: Colors.white.withOpacity(0.6),
+                          borderRadius: BorderRadius.circular(20),
+                          boxShadow: [
+                            BoxShadow(
+                              offset: Offset(0, 20),
+                              blurRadius: 25,
+                              color: kPrimaryColor.withOpacity(0.33),
+                            ),
+                          ],
+                        ),
+                        child: TextField(
+                          onChanged: (value) {},
+                          decoration: InputDecoration(
+                            hintText: 'Search and Browser',
+                            hintStyle: TextStyle(
+                              color: kPrimaryColor.withOpacity(0.5),
+                            ),
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            suffixIcon: Icon(
+                              Icons.search,
+                              color: kPrimaryColor.withOpacity(0.5),
+                              size: 35,
+                            ),
+                          ),
+                        ),
+                      ),
                     ),
                     Positioned(
                       bottom: 0,

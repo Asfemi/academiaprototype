@@ -1,3 +1,4 @@
+import 'package:academiaprototype/Components/Show dialog.dart';
 import 'package:academiaprototype/Components/general_row.dart';
 import 'package:academiaprototype/Screens/General/GenGallery.dart';
 import 'package:academiaprototype/Screens/General/MapsScreen.dart';
@@ -82,7 +83,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
                                 title: Row(
                                   children: [
                                     const Text('Time Table'),
-                                    FlatButton(
+                                    TextButton(
                                         child: const Icon(Icons.expand),
                                         onPressed: () {
                                           Navigator.pushNamed(
@@ -92,14 +93,13 @@ class _GeneralScreenState extends State<GeneralScreen> {
                                 ),
                                 content: MiniCafeTimeTable(size: size),
                                 actions: <Widget>[
-                                  FlatButton(
+                                  TextButton(
                                       child: const Text('Okay'),
                                       onPressed: () {
                                         Navigator.pop(
                                             context, DialogAction.disagree);
                                       }),
                                 ]));
-                        //TODO: make a cateria widget to display cafe contacts
                       },
                     ),
                     GeneralRow(
@@ -270,7 +270,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
             ),
           ),
           Positioned(
-            top: 5,
+            top: 10,
             left: 10,
             child: IconButton(
               icon: Icon(Icons.arrow_back, color: Colors.white),
@@ -287,17 +287,3 @@ class _GeneralScreenState extends State<GeneralScreen> {
 
 // 08124232012
 // 08155907801 au ambulance
-
-void showMainDialog<T>({BuildContext context, Widget child}) {
-  showDialog<T>(
-    context: context,
-    builder: (BuildContext context) => child,
-  ).then<void>((T value) {
-    // The value passed to Navigator.pop() or null.
-    if (value != null) {
-      /*_scaffoldKey.currentState.showSnackBar(SnackBar(
-            content: Text('You selected: $value')
-        ));*/
-    }
-  });
-}
