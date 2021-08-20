@@ -2,14 +2,36 @@ import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 
 // ignore: camel_case_types
-class Home_Widget extends StatefulWidget {
+
+// Home_Widget
+//   Home_Widget({
+//     this.color,
+//     this.image,
+//     this.about,
+//     this.heading,
+//     this.onPressed,
+//     //this.height,
+//     this.exit,
+//   });
+//
+//   final Color color;
+//   final String heading;
+//   final String about;
+//   final String image;
+//   final Function onPressed;
+//   // final double height;
+//   final bool exit;
+
+// ignore: camel_case_types
+class Home_Widget extends StatelessWidget {
   Home_Widget({
     this.color,
     this.image,
     this.about,
     this.heading,
     this.onPressed,
-    this.height,
+    //this.height,
+    this.exit,
   });
 
   final Color color;
@@ -17,29 +39,21 @@ class Home_Widget extends StatefulWidget {
   final String about;
   final String image;
   final Function onPressed;
-  final double height;
+  // final double height;
+  final bool exit;
 
-  @override
-  _Home_WidgetState createState() => _Home_WidgetState();
-}
-
-// ignore: camel_case_types
-class _Home_WidgetState extends State<Home_Widget> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     bool deactivate = false;
-
-    return Container(
-      height: widget.height,
-      width: size.shortestSide,
+    return Material(
       child: Stack(
         children: [
           Container(
-            height: size.shortestSide,
+            height: deactivate ? 0.0 : size.shortestSide,
             width: size.shortestSide,
             decoration: BoxDecoration(
-              color: widget.color,
+              color: color,
               borderRadius: BorderRadius.all(
                 Radius.circular(10.0),
               ),
@@ -50,7 +64,7 @@ class _Home_WidgetState extends State<Home_Widget> {
                 width: size.shortestSide * 0.6,
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage(widget.image),
+                    image: AssetImage(image),
                     fit: BoxFit.fill,
                   ),
 //            borderRadius: BorderRadius.all(
@@ -75,14 +89,14 @@ class _Home_WidgetState extends State<Home_Widget> {
             ),
           ),
           Positioned(
-            right: 10,
             top: 10,
+            right: 10,
             child: IconButton(
               icon: Icon(
                 Icons.close,
                 color: Colors.white,
               ),
-              onPressed: widget.onPressed,
+              onPressed: onPressed,
             ),
           ),
           Positioned(
@@ -95,7 +109,7 @@ class _Home_WidgetState extends State<Home_Widget> {
                 height: size.shortestSide * 0.3,
               ),
               child: Text(
-                widget.heading,
+                heading,
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 30,
@@ -113,7 +127,7 @@ class _Home_WidgetState extends State<Home_Widget> {
                 height: size.shortestSide * 0.3,
               ),
               child: Text(
-                widget.about,
+                about,
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 13,

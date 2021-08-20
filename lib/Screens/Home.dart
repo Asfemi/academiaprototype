@@ -74,12 +74,11 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 20),
                 Home_Widget(
-                  height: deactivate ? 0.0 : size.shortestSide,
+                  //height: deactivate ? 0.0 : size.shortestSide,
                   onPressed: () {
                     setState(() {
-                      print('iwas pressed');
-                      deactivate = true;
-                      print('iwas pressed2');
+                      deactivate = !deactivate;
+                      print('exit was pressed');
                     });
                   },
                   color: Colors.black,
@@ -88,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   about:
                       'Get a premium or metal account to enjoy higher limits and distinctive cards',
                 ),
-                SizedBox(height: 20),
+                SizedBox(height: deactivate ? 20 : 0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
@@ -120,7 +119,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black,
                         icon2: LineIcons.fighterJet,
                         text3: 'Eng',
-                        tag: '1',
+                        //tag: '1',
                         onPressed: () {
                           Navigator.pushNamed(context, FacultyPage.id);
                         },
@@ -134,7 +133,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: LineIcons.bomb,
                         text3: 'PG',
                         light: true,
-                        tag: '2',
+                        //tag: '2',
                         onPressed: () {
                           Navigator.pushNamed(context, LibraryScreen.id);
                         },
@@ -147,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: LineIcons.smilingFace,
                         text3: 'Open',
                         light: false,
-                        tag: '3',
+                        //tag: '3',
                         onPressed: () {
                           Navigator.pushNamed(context, ClubsScreen.id);
                         },
@@ -160,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: LineIcons.footballBall,
                         text3: 'Kick',
                         light: false,
-                        tag: '6',
+                        //tag: '6',
                         onPressed: () {
                           Navigator.pushNamed(context, SportsScreen.id);
                         },
@@ -173,7 +172,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: LineIcons.lightbulb,
                         text3: 'Sure',
                         light: true,
-                        tag: '5',
+                        // tag: '5',
                         onPressed: () {
                           Navigator.pushNamed(context, GeneralScreen.id);
                         },
@@ -187,7 +186,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: LineIcons.weebly,
                         text3: 'We',
                         light: true,
-                        tag: '4',
+                        //tag: '4',
                         onPressed: () {
                           Navigator.pushNamed(context, AusaNavigation.id);
                         },
@@ -413,7 +412,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black,
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
-                        tag: '1',
+                        // tag: '1',
                         onPressed: () {
                           //Navigator.pushNamed(context, FacultyScreen.id);
                         },
@@ -426,7 +425,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
                         light: false,
-                        tag: '2',
+                        //tag: '2',
                         onPressed: () {
                           // Navigator.pushNamed(context, LibraryScreen.id);
                         },
@@ -440,7 +439,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
                         light: false,
-                        tag: '3',
+                        // tag: '3',
                         onPressed: () {
                           // Navigator.pushNamed(context, ClubsScreen.id);
                         },
@@ -453,7 +452,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
                         light: false,
-                        tag: '6',
+                        //tag: '6',
                         onPressed: () {
                           // Navigator.pushNamed(context, SportsScreen.id);
                         },
@@ -466,7 +465,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
                         light: true,
-                        tag: '5',
+                        // tag: '5',
                         onPressed: () {
                           // Navigator.pushNamed(context, GeneralScreen.id);
                         },
@@ -480,7 +479,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
                         light: true,
-                        tag: '4',
+                        //tag: '4',
                         onPressed: () {
                           // Navigator.pushNamed(context, AusaScreen.id);
                         },
@@ -727,7 +726,7 @@ Widget dashboard(context) {
         children: <Widget>[
           Expanded(flex: 1, child: Container()),
           HomeBox(
-            tag: '1',
+            //tag: '1',
             light: true,
             onPressed: () {
               Navigator.pushNamed(context, FacultyPage.id);
@@ -739,7 +738,7 @@ Widget dashboard(context) {
           ),
           Expanded(flex: 2, child: Container()),
           HomeBox(
-            tag: '2',
+            // tag: '2',
             light: false,
             onPressed: () {
               Navigator.pushNamed(context, LibraryScreen.id);
@@ -756,7 +755,7 @@ Widget dashboard(context) {
         children: [
           Expanded(flex: 1, child: Container()),
           HomeBox(
-            tag: '3',
+            // tag: '3',
             light: false,
             onPressed: () {
               Navigator.pushNamed(context, ClubsScreen.id);
@@ -767,7 +766,7 @@ Widget dashboard(context) {
           ),
           Expanded(flex: 2, child: Container()),
           HomeBox(
-            tag: '6',
+            //tag: '6',
             light: false,
             onPressed: () {
               Navigator.pushNamed(context, SportsScreen.id);
@@ -784,7 +783,7 @@ Widget dashboard(context) {
         children: <Widget>[
           Expanded(flex: 1, child: Container()),
           HomeBox(
-            tag: '5',
+            //tag: '5',
             light: true,
             onPressed: () {
               Navigator.pushNamed(context, GeneralScreen.id);
@@ -795,7 +794,7 @@ Widget dashboard(context) {
           ),
           Expanded(flex: 2, child: Container()),
           HomeBox(
-            tag: '4',
+            // tag: '4',
             light: true,
             onPressed: () {
               Navigator.pushNamed(context, AusaScreen.id);

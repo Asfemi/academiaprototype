@@ -12,7 +12,7 @@ class HomeBox extends StatelessWidget {
     this.text3,
     this.icon,
     this.icon2,
-    this.tag,
+    //this.tag,
     @required this.light,
   });
 
@@ -24,7 +24,7 @@ class HomeBox extends StatelessWidget {
   final String text;
   final String text2;
   final String text3;
-  final String tag;
+  //final String tag;
   final bool light;
 
   @override
@@ -39,35 +39,32 @@ class HomeBox extends StatelessWidget {
       //margin: EdgeInsets.all(kDefaultPadding),
       child: Stack(
         children: [
-          Hero(
-            tag: tag,
-            child: Container(
-              // margin: EdgeInsets.only(right: 5),
-              width: size.width * 0.45,
-              height: size.height * 0.23,
-              decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: AssetImage(image),
-                  fit: BoxFit.cover,
-                ),
-                borderRadius: BorderRadius.all(
-                  Radius.circular(10),
-                ),
+          Container(
+            // margin: EdgeInsets.only(right: 5),
+            width: size.width * 0.45,
+            height: size.height * 0.23,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(image),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(10),
+              ),
 //                border: Border.all(
 //                  color: kPrimaryColor,
 //                  style: BorderStyle.solid,
 //                ),
-                boxShadow: [
-                  BoxShadow(
-                    offset: Offset(0, 5),
-                    blurRadius: 10,
-                    color: kPrimaryColor.withOpacity(0.23),
-                  ),
-                ],
-              ),
-              child: MaterialButton(
-                onPressed: onPressed,
-              ),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 5),
+                  blurRadius: 10,
+                  color: kPrimaryColor.withOpacity(0.23),
+                ),
+              ],
+            ),
+            child: MaterialButton(
+              onPressed: onPressed,
             ),
           ),
           Positioned(

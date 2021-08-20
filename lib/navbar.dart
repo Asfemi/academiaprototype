@@ -1,5 +1,5 @@
+import 'package:academiaprototype/Screens/Classes/classes_Screen.dart';
 import 'package:academiaprototype/Screens/Home.dart';
-import 'package:academiaprototype/Screens/classes_Screen.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 //import 'package:google_nav_bar/google_nav_bar.dart';

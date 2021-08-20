@@ -2,6 +2,8 @@ import 'package:academiaprototype/Screens/Articles/articlesHome_Screen.dart';
 import 'package:academiaprototype/Screens/Articles/articles_Screen.dart';
 import 'package:academiaprototype/Screens/Ausa/AusaNavigation.dart';
 import 'package:academiaprototype/Screens/Ausa/ausa_Screen.dart';
+import 'package:academiaprototype/Screens/Classes/classes_Screen.dart';
+import 'package:academiaprototype/Screens/Clubs/ClubsIndividualScreen.dart';
 import 'package:academiaprototype/Screens/Clubs/clubs_Screen.dart';
 import 'package:academiaprototype/Screens/Faculty/Department/departGallery.dart';
 import 'package:academiaprototype/Screens/Faculty/Department/department_Screen.dart';
@@ -22,8 +24,8 @@ import 'package:academiaprototype/Screens/General/chapel_Screen.dart';
 import 'package:academiaprototype/Screens/General/general_Screen.dart';
 import 'package:academiaprototype/Screens/General/hostel_Screen.dart';
 import 'package:academiaprototype/Screens/Home.dart';
+import 'package:academiaprototype/Screens/Library/book%20page.dart';
 import 'package:academiaprototype/Screens/Library/library_Screen.dart';
-import 'package:academiaprototype/Screens/classes_Screen.dart';
 import 'package:academiaprototype/Screens/sports_Screen.dart';
 import 'package:academiaprototype/navbar.dart';
 import 'package:flutter/material.dart';
@@ -72,8 +74,10 @@ class MyApp extends StatelessWidget {
           SportsScreen.id: (context) => SportsScreen(),
           //Clubs Screen routes
           ClubsScreen.id: (context) => ClubsScreen(),
+          ClubsIndividualScreen.id: (context) => ClubsIndividualScreen(),
           //Library Screen Routes
           LibraryScreen.id: (context) => LibraryScreen(),
+          BookPage.id: (context) => BookPage(),
           //Ausa Screen routes
           AusaNavigation.id: (context) => AusaNavigation(),
           AusaScreen.id: (context) => AusaScreen(),

@@ -1,4 +1,5 @@
 import 'package:academiaprototype/Components/MyScrollView.dart';
+import 'package:academiaprototype/Screens/Clubs/ClubsIndividualScreen.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -99,47 +100,54 @@ class _ClubsScreenState extends State<ClubsScreen> {
           bottom: null,
           child: SliverChildBuilderDelegate(
             (context, position) => Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                //padding: EdgeInsets.only(top: 4, bottom: 4),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  boxShadow: [
-                    BoxShadow(
-                        color: Colors.black.withOpacity(0.23),
-                        blurRadius: 10,
-                        offset: Offset(0, 5))
-                  ],
-                  borderRadius: BorderRadius.all(Radius.circular(25)),
-                ),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage(images[position]),
-                          fit: BoxFit.fill,
+              padding: const EdgeInsets.only(
+                  left: 2.0, right: 2.0, top: 8, bottom: 8),
+              child: GestureDetector(
+                onTap: () {
+                  // Navigator.push(context, route)
+                  Navigator.pushNamed(context, ClubsIndividualScreen.id);
+                },
+                child: Container(
+                  //padding: EdgeInsets.only(top: 4, bottom: 4),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    boxShadow: [
+                      BoxShadow(
+                          color: Colors.black.withOpacity(0.23),
+                          blurRadius: 10,
+                          offset: Offset(0, 5))
+                    ],
+                    borderRadius: BorderRadius.all(Radius.circular(25)),
+                  ),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            image: AssetImage(images[position]),
+                            fit: BoxFit.fill,
+                          ),
+                          //color: backgroundColor,
+                          borderRadius: BorderRadius.only(
+                              topLeft: Radius.circular(25),
+                              bottomLeft: Radius.circular(25)),
                         ),
-                        //color: backgroundColor,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(25),
-                            bottomLeft: Radius.circular(25)),
+                        height: size.height * 0.18,
+                        width: size.width * 0.5,
+                        //child: Image.asset('assets/101.png'),
                       ),
-                      height: 150,
-                      width: 170,
-                      //child: Image.asset('assets/101.png'),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 8.0, top: 100),
-                      child: Align(
-                        alignment: Alignment.bottomRight,
-                        child: Text(
-                          sendersList[position],
-                          style: TextStyle(fontSize: 21, color: Colors.black),
+                      Padding(
+                        padding: EdgeInsets.only(left: 8.0, top: 100),
+                        child: Align(
+                          alignment: Alignment.bottomRight,
+                          child: Text(
+                            sendersList[position],
+                            style: TextStyle(fontSize: 19, color: Colors.black),
+                          ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),

@@ -15,15 +15,16 @@ class LibraryBook extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Padding(
       padding: EdgeInsets.all(8.0),
       child: Container(
-        width: 100,
+        width: size.width * 0.26,
         child: Column(
           children: <Widget>[
             Container(
-              height: 120,
-              width: 100,
+              height: size.height * 0.16,
+              width: size.width * 0.26,
               decoration: BoxDecoration(
                 color: Colors.white,
                 image: DecorationImage(
@@ -43,9 +44,7 @@ class LibraryBook extends StatelessWidget {
                 //borderRadius: BorderRadius.all(Radius.circular(26)),
               ),
             ),
-            SizedBox(
-              height: 10,
-            ),
+            SizedBox(height: 10),
             Align(
               alignment: Alignment.bottomLeft,
               child: Text(

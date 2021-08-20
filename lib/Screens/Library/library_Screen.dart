@@ -26,7 +26,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
         // centerTitle: true,
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back,
+            Icons.arrow_back_ios,
             color: kPrimaryColor,
           ),
           tooltip: 'back',
@@ -44,18 +44,12 @@ class _LibraryScreenState extends State<LibraryScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  //TODO: fix search bar
-                  Text(
-                    '$title',
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                      fontSize: 40,
-                    ),
-                  ),
-                ],
+              Text(
+                '$title',
+                style: TextStyle(
+                  color: kPrimaryColor,
+                  fontSize: 40,
+                ),
               ),
               Container(
                 height: size.height * 0.005,
@@ -68,9 +62,7 @@ class _LibraryScreenState extends State<LibraryScreen> {
                   ),
                 ),
               ),
-              SizedBox(
-                height: 10,
-              ),
+              SizedBox(height: 10),
               Container(
                 //color: Colors.amber,
                 height: size.height * 0.65,
