@@ -428,7 +428,7 @@ class _ClassWidgetState extends State<ClassWidget> {
     return ListView(
       reverse: true,
       padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-      children: messageWidgets,
+      //children: messageWidgets,
     );
   }
 }
