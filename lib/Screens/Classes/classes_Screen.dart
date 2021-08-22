@@ -35,40 +35,6 @@ class _ClassesScreenState extends State<ClassesScreen>
     super.initState();
   }
 
-  List<Widget> classWidgets = [
-    Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text.rich(
-          TextSpan(
-            text: 'Topic:',
-          ),
-          style: TextStyle(
-            fontSize: 15,
-            fontWeight: FontWeight.bold,
-            color: Colors.black54,
-          ),
-        ),
-        Text(
-          'The gear system',
-          style: TextStyle(
-            fontSize: 20,
-            fontWeight: FontWeight.bold,
-            color: kPrimaryColor,
-          ),
-        ),
-      ],
-    ),
-  ];
-
-//  void messagesStream() async {
-//    await for (var snapshot in _dB.collection('messages').snapshots()) {
-//      for (var message in snapshot.docs) {
-//        print(message.data);
-//      }
-//    }
-//  }
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -250,32 +216,42 @@ class _ClassesScreenState extends State<ClassesScreen>
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      //classWidgets,
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text.rich(
-                            TextSpan(
-                              text: 'Topic:',
+                      ClassStream(),
+                      Container(
+                        decoration: kMessageContainerDecoration,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: <Widget>[
+                            Expanded(
+                              child: TextField(
+                                controller: messageTextController,
+                                onChanged: (value) {
+                                  //Do something with the user input.
+                                  messageText = value;
+                                },
+                                decoration: kMessageTextFieldDecoration,
+                              ),
                             ),
-                            style: TextStyle(
-                              fontSize: 15,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.black54,
+                            TextButton(
+                              onPressed: () {
+                                //Implement send functionality.
+                                messageTextController.clear();
+                                // _dB.collection('messages').add({
+                                //   'text': messageText,
+                                //   'sender': loggedInUser.displayName,
+                                // });
+                                //TODO: remember to add this collection 'messages' to the database
+                              },
+                              child: Text(
+                                'Send',
+                                style: kSendButtonTextStyle,
+                              ),
                             ),
-                          ),
-                          Text(
-                            'The gear system',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryColor,
-                            ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
                     ],
                   ),
@@ -415,97 +391,160 @@ class _ClassesScreenState extends State<ClassesScreen>
 //              ),
 //            ),
 
-class ClassWidget extends StatefulWidget {
-  //const ClassWidget({Key? key}) : super(key: key);
+List<String> classitems = [];
 
-  @override
-  _ClassWidgetState createState() => _ClassWidgetState();
-}
+class ClassStream extends StatelessWidget {
+  //const ClassStream({Key? key}) : super(key: key);
 
-class _ClassWidgetState extends State<ClassWidget> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      reverse: true,
-      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
-      //children: messageWidgets,
+    List<ClassBubble> classWidgets = [];
+
+    //sample of how it should be in the back end
+    // final messages = snapshot.data.docs.reversed;
+    final items = classitems;
+
+    for (var item in items) {
+      final messageText = 'text';
+      final messageSender = 'sender';
+
+      //final currentUser = loggedInUser.displayName;
+
+      final classesWidget = ClassBubble(
+        text: messageText,
+        sender: messageSender,
+        isMe: true,
+      );
+      classWidgets.add(classesWidget);
+    }
+
+    return Expanded(
+      child: ListView(
+        reverse: true,
+        padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+        children: classWidgets,
+      ),
     );
   }
 }
 
-class MessageBubble extends StatelessWidget {
-  MessageBubble({this.text, this.sender, this.isMe});
+class ClassBubble extends StatelessWidget {
+  ClassBubble({
+    this.text,
+    this.sender,
+    this.isMe,
+    this.searchbool,
+    this.searchResultText3,
+    this.searchResultText2,
+    this.searchResultText1,
+    this.topic,
+    this.topicbool,
+    this.subtopic,
+    this.subtopicbool,
+  });
 
+  //topic
+  final bool topicbool;
+  final String topic;
+  //subTopic
+  final bool subtopicbool;
+  final String subtopic;
+  //search result
+  final bool searchbool;
+  final String searchResultText1;
+  final String searchResultText2;
+  final String searchResultText3;
+  //comment
   final String text;
   final String sender;
   final bool isMe;
 
   @override
   Widget build(BuildContext context) {
-    return isMe
-        ? Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.end,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '$sender',
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
-                ),
-                Material(
-                  elevation: 5.0,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                    topLeft: Radius.circular(30),
+    if (topicbool == true) {
+      return Container(
+        height: 100,
+        width: 100,
+        color: Colors.indigo,
+      );
+    } else if (searchbool == true) {
+      return Container(
+        height: 100,
+        width: 100,
+        color: Colors.purple,
+      );
+    } else if (subtopicbool == true) {
+      return Container(
+        height: 100,
+        width: 100,
+        color: Colors.purple,
+      );
+    } else {
+      return isMe
+          ? Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.end,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '$sender',
+                    style: TextStyle(fontSize: 12, color: Colors.black54),
                   ),
-                  color: kPrimaryColor,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: Text(
-                      '$text',
-                      style: TextStyle(
-                        color: Colors.white,
+                  Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                      topLeft: Radius.circular(30),
+                    ),
+                    color: kPrimaryColor,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      child: Text(
+                        '$text',
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          )
-        : Padding(
-            padding: const EdgeInsets.all(10.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  '$sender',
-                  style: TextStyle(fontSize: 12, color: Colors.black54),
-                ),
-                Material(
-                  elevation: 5.0,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(30),
-                    bottomRight: Radius.circular(30),
-                    topRight: Radius.circular(30),
+                ],
+              ),
+            )
+          : Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    '$sender',
+                    style: TextStyle(fontSize: 12, color: Colors.black54),
                   ),
-                  color: Colors.white,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 10, vertical: 10),
-                    child: Text(
-                      '$text',
-                      style: TextStyle(
-                        color: Colors.black,
+                  Material(
+                    elevation: 5.0,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(30),
+                      bottomRight: Radius.circular(30),
+                      topRight: Radius.circular(30),
+                    ),
+                    color: Colors.white,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: 10, vertical: 10),
+                      child: Text(
+                        '$text',
+                        style: TextStyle(
+                          color: Colors.black,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-          );
+                ],
+              ),
+            );
+    }
   }
 }
