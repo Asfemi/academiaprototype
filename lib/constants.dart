@@ -32,9 +32,39 @@ const kHeadingText3 = TextStyle(
 );
 
 const kMessageTextFieldDecoration = InputDecoration(
+  fillColor: kPrimaryColor,
+  hintText: 'Enter a comment...',
+  hintStyle: TextStyle(fontSize: 20, color: kPrimaryColor),
   contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-  hintText: 'Type your message here...',
-  border: InputBorder.none,
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: kPrimaryColor, width: 2.0),
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
+);
+
+const kTextFieldDesign = InputDecoration(
+  fillColor: Colors.white,
+  hintText: 'Enter your email',
+  hintStyle: TextStyle(fontSize: 20, color: Colors.white70),
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: kPrimaryColor, width: 1.0),
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: kPrimaryColor, width: 2.0),
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
 );
 
 const kMessageContainerDecoration = BoxDecoration(

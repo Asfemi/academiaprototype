@@ -2,7 +2,10 @@ import 'package:academiaprototype/Screens/Articles/articlesHome_Screen.dart';
 import 'package:academiaprototype/Screens/Articles/articles_Screen.dart';
 import 'package:academiaprototype/Screens/Ausa/AusaNavigation.dart';
 import 'package:academiaprototype/Screens/Ausa/ausa_Screen.dart';
+import 'package:academiaprototype/Screens/Classes/More.dart';
 import 'package:academiaprototype/Screens/Classes/classes_Screen.dart';
+import 'package:academiaprototype/Screens/Classes/notes.dart';
+import 'package:academiaprototype/Screens/Classes/pastQuestions.dart';
 import 'package:academiaprototype/Screens/Clubs/ClubsIndividualScreen.dart';
 import 'package:academiaprototype/Screens/Clubs/clubs_Screen.dart';
 import 'package:academiaprototype/Screens/Faculty/Department/departGallery.dart';
@@ -48,6 +51,9 @@ class MyApp extends StatelessWidget {
           SwipeNavigation.id: (context) => SwipeNavigation(),
           ///////////Classes page Routes///////////
           ClassesScreen.id: (context) => ClassesScreen(),
+          PastQuestions.id: (context) => PastQuestions(),
+          ClassNotes.id: (context) => ClassNotes(),
+          More.id: (context) => More(),
           //////////Home Screen Routes///////////
           HomeScreen.id: (context) => HomeScreen(),
           //General screen pages

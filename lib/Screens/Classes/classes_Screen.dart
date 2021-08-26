@@ -221,7 +221,7 @@ class _ClassesScreenState extends State<ClassesScreen>
                     children: <Widget>[
                       ClassStream(),
                       Container(
-                        decoration: kMessageContainerDecoration,
+                        //decoration: kMessageContainerDecoration,
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           children: <Widget>[

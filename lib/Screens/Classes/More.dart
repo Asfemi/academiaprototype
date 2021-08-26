@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class More extends StatefulWidget {
+  static String id = 'more_Screen';
+
   //const More({Key? key}) : super(key: key);
 
   @override
