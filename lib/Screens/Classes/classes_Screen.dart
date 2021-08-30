@@ -229,7 +229,7 @@ class _ClassesScreenState extends State<ClassesScreen>
                               child: TextField(
                                 //textInputAction: TextInputAction.search,
                                 controller: messageTextController,
-                                minLines: 10,
+                                maxLines: 1,
                                 onChanged: (value) {
                                   //Do something with the user input.
                                   messageText = value;
