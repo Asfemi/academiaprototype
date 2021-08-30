@@ -1,3 +1,4 @@
+import 'package:academiaprototype/Screens/Sports/spoartsNews.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 
@@ -135,67 +136,73 @@ class _SportsScreenState extends State<SportsScreen> {
             ),
             SliverList(
               delegate: SliverChildBuilderDelegate(
-                (context, position) => Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        Expanded(
-                          flex: 4,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: <Widget>[
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(
-                                    12.0, 12.0, 12.0, 6.0),
-                                child: Text(
-                                  sendersList[position],
-                                  style: TextStyle(
-                                      fontSize: 14.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ),
-                              Padding(
-                                padding: const EdgeInsets.fromLTRB(
-                                    12.0, 6.0, 12.0, 12.0),
-                                child: Text(
-                                  subjectList[position],
-                                  style: TextStyle(fontSize: 11.0),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                        Expanded(
-                          flex: 1,
-                          child: Padding(
-                            padding: const EdgeInsets.all(2.0),
+                (context, position) => GestureDetector(
+                  onTap: () {
+                    Navigator.pushNamed(context, Sportsnews.id);
+                  },
+                  child: Column(
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: <Widget>[
+                          Expanded(
+                            flex: 4,
                             child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(
-                                  "5m",
-                                  style: TextStyle(color: Colors.grey),
+                                Padding(
+                                  padding: const EdgeInsets.fromLTRB(
+                                      12.0, 12.0, 12.0, 6.0),
+                                  child: Text(
+                                    sendersList[position],
+                                    style: TextStyle(
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Icon(
-                                    Icons.star_border,
-                                    size: 20.0,
-                                    color: Colors.grey,
+                                  padding: const EdgeInsets.fromLTRB(
+                                      12.0, 6.0, 12.0, 12.0),
+                                  child: Text(
+                                    subjectList[position],
+                                    style: TextStyle(fontSize: 11.0),
                                   ),
                                 ),
                               ],
                             ),
                           ),
-                        ),
-                      ],
-                    ),
-                    Divider(
-                      height: 2.0,
-                      color: Colors.grey,
-                    )
-                  ],
+                          Expanded(
+                            flex: 1,
+                            child: Padding(
+                              padding: const EdgeInsets.all(2.0),
+                              child: Column(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  Text(
+                                    "5m",
+                                    style: TextStyle(color: Colors.grey),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Icon(
+                                      Icons.star_border,
+                                      size: 20.0,
+                                      color: Colors.grey,
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Divider(
+                        height: 2.0,
+                        color: Colors.grey,
+                      )
+                    ],
+                  ),
                 ),
                 childCount: sendersList.length,
               ), //SliverChildBuildDelegate

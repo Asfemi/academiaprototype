@@ -1,3 +1,4 @@
+import 'package:academiaprototype/Components/ComingSoon.dart';
 import 'package:flutter/material.dart';
 
 class Sportsnews extends StatelessWidget {
@@ -7,6 +8,6 @@ class Sportsnews extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Material(child: ComingSoon(no: 3, theme: true));
   }
 }

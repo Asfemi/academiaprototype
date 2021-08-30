@@ -227,7 +227,9 @@ class _ClassesScreenState extends State<ClassesScreen>
                           children: <Widget>[
                             Expanded(
                               child: TextField(
+                                //textInputAction: TextInputAction.search,
                                 controller: messageTextController,
+                                minLines: 10,
                                 onChanged: (value) {
                                   //Do something with the user input.
                                   messageText = value;
@@ -236,6 +238,7 @@ class _ClassesScreenState extends State<ClassesScreen>
                               ),
                             ),
                             TextButton(
+                              //set the send functionality to not work without a tag been set for the text input
                               onPressed: () {
                                 //Implement send functionality.
                                 messageTextController.clear();
