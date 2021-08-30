@@ -95,18 +95,43 @@ class _FacultyPageState extends State<FacultyPage> {
               fit: BoxFit.cover,
             ),
             height: size.height / 2.5,
-            leadingWidget: IconButton(
-              icon: Icon(
-                Icons.arrow_back_ios,
-                color: kPrimaryColor,
-              ),
-              tooltip: 'back',
-              onPressed: () {
-                Navigator.pop(context);
-                setState(() {
-                  fabActive = false;
-                });
-              },
+            leadingWidget: Row(
+              //mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: kPrimaryColor,
+                    ),
+                    tooltip: 'back',
+                    //TODO fix the hover color showing on the buttons here
+                    onPressed: () {
+                      Navigator.pop(context);
+                      setState(() {
+                        fabActive = false;
+                      });
+                    },
+                  ),
+                ),
+                //SizedBox(height: 10, width: 10),
+                Expanded(
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.dashboard,
+                      color: kPrimaryColor,
+                    ),
+                    hoverColor: null,
+                    tooltip: 'dashboard',
+                    onPressed: () {
+                      //Navigator.pop(context);
+                      setState(() {
+                        fabActive = false;
+                      });
+                    },
+                  ),
+                ),
+              ],
             ),
             actionsList: <Widget>[
               Padding(
@@ -234,6 +259,10 @@ class _FacultyPageState extends State<FacultyPage> {
           //todo: add functionality to tap outside the popButtons to close them
         ],
       ),
+
+      //use abeg type dashboard icon as drawer
+      //so there wouldnt be a drawer
+      // but a page that displays the department and the associated pages
       //Todo: Setup faculty drawer
       drawer: Drawer(
         child: Container(

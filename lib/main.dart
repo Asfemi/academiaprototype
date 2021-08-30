@@ -29,7 +29,10 @@ import 'package:academiaprototype/Screens/General/hostel_Screen.dart';
 import 'package:academiaprototype/Screens/Home.dart';
 import 'package:academiaprototype/Screens/Library/book%20page.dart';
 import 'package:academiaprototype/Screens/Library/library_Screen.dart';
-import 'package:academiaprototype/Screens/sports_Screen.dart';
+import 'package:academiaprototype/Screens/Sports/spoartsNews.dart';
+import 'package:academiaprototype/Screens/Sports/sportsOtherInfo.dart';
+import 'package:academiaprototype/Screens/Sports/sports_Screen.dart';
+import 'package:academiaprototype/Screens/Sports/teamsAndEvents.dart';
 import 'package:academiaprototype/navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -78,6 +81,9 @@ class MyApp extends StatelessWidget {
           DepartmentGallery.id: (context) => DepartmentGallery(),
           //Sports Screen routes
           SportsScreen.id: (context) => SportsScreen(),
+          Sportsnews.id: (context) => Sportsnews(),
+          SportsOtherInfo.id: (context) => SportsOtherInfo(),
+          TeamsAndEvents.id: (context) => TeamsAndEvents(),
           //Clubs Screen routes
           ClubsScreen.id: (context) => ClubsScreen(),
           ClubsIndividualScreen.id: (context) => ClubsIndividualScreen(),
