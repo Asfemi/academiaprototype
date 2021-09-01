@@ -80,6 +80,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       deactivate = !deactivate;
                       print('exit was pressed');
                     });
+                    Navigator.pop(context);
                   },
                   color: Colors.black,
                   image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
