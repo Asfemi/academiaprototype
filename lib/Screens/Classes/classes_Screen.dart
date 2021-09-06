@@ -239,8 +239,10 @@ class _ClassesScreenState extends State<ClassesScreen>
                         children: <Widget>[
                           ClassStream(),
                           Container(
+                            height: size.height * 0.05,
                             //decoration: kMessageContainerDecoration,
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.center,
                               children: <Widget>[
                                 Expanded(
@@ -255,20 +257,31 @@ class _ClassesScreenState extends State<ClassesScreen>
                                     decoration: kMessageTextFieldDecoration,
                                   ),
                                 ),
-                                TextButton(
-                                  //set the send functionality to not work without a tag been set for the text input
-                                  onPressed: () {
-                                    //Implement send functionality.
-                                    messageTextController.clear();
-                                    // _dB.collection('messages').add({
-                                    //   'text': messageText,
-                                    //   'sender': loggedInUser.displayName,
-                                    // });
-                                    //TODO: remember to add this collection 'messages' to the database
-                                  },
-                                  child: Text(
-                                    'Send',
-                                    style: kSendButtonTextStyle,
+                                SizedBox(width: 10),
+                                Material(
+                                  color: kPrimaryColor,
+                                  shape: CircleBorder(),
+                                  child: Center(
+                                    child: IconButton(
+                                      //set the send functionality to not work without a tag been set for the text input
+                                      onPressed: () {
+                                        //Implement send functionality.
+                                        messageTextController.clear();
+                                        // _dB.collection('messages').add({
+                                        //   'text': messageText,
+                                        //   'sender': loggedInUser.displayName,
+                                        // });
+                                        //TODO: remember to add this collection 'messages' to the database
+                                      },
+                                      icon: Icon(
+                                        Icons.send,
+                                        color: Colors.white,
+                                      ),
+                                      // child: Text(
+                                      //   'Send',
+                                      //   style: kSendButtonTextStyle,
+                                      // ),
+                                    ),
                                   ),
                                 ),
                               ],
@@ -462,6 +475,7 @@ class ClassStream extends StatelessWidget {
       final subtopic = items[changable].subtopic;
       //search result
       final searchbool = items[changable].searchbool;
+      final search = items[changable].search;
       final searchResultText1 = items[changable].searchResultText1;
       final searchResultText2 = items[changable].searchResultText2;
       final searchResultText3 = items[changable].searchResultText3;
@@ -476,6 +490,7 @@ class ClassStream extends StatelessWidget {
         subtopicbool: subtopicbool,
         subtopic: subtopic,
         searchbool: searchbool,
+        search: search,
         searchResultText1: searchResultText1,
         searchResultText2: searchResultText2,
         searchResultText3: searchResultText3,
@@ -505,6 +520,7 @@ class ClassBubble extends StatelessWidget {
     this.sender,
     this.isMe,
     this.searchbool,
+    this.search,
     this.searchResultText3,
     this.searchResultText2,
     this.searchResultText1,
@@ -522,6 +538,7 @@ class ClassBubble extends StatelessWidget {
   final String subtopic;
   //search result
   final bool searchbool;
+  final String search;
   final String searchResultText1;
   final String searchResultText2;
   final String searchResultText3;
@@ -571,9 +588,20 @@ class ClassBubble extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Search Result:',
-              style: TextStyle(fontSize: 12, color: Colors.black54),
+            Row(
+              children: [
+                Text(
+                  'Search Result:',
+                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                ),
+                SizedBox(
+                  width: 10,
+                ),
+                Text(
+                  '$search',
+                  style: TextStyle(fontSize: 12, color: Colors.black54),
+                ),
+              ],
             ),
             Material(
               elevation: 5.0,
@@ -641,7 +669,7 @@ class ClassBubble extends StatelessWidget {
     } else {
       return isMe
           ? Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(bottom: 4.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.end,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -673,7 +701,7 @@ class ClassBubble extends StatelessWidget {
               ),
             )
           : Padding(
-              padding: const EdgeInsets.all(10.0),
+              padding: const EdgeInsets.only(bottom: 4.0),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 mainAxisAlignment: MainAxisAlignment.center,

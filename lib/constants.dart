@@ -34,8 +34,8 @@ const kHeadingText3 = TextStyle(
 const kMessageTextFieldDecoration = InputDecoration(
   fillColor: kPrimaryColor,
   hintText: 'Enter a comment...',
-  hintStyle: TextStyle(fontSize: 20, color: kPrimaryColor),
-  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  hintStyle: TextStyle(fontSize: 14, color: kPrimaryColor),
+  contentPadding: EdgeInsets.symmetric(vertical: 4.0, horizontal: 20.0),
   border: OutlineInputBorder(
     borderRadius: BorderRadius.all(Radius.circular(32.0)),
   ),

@@ -146,7 +146,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.black,
                         icon2: LineIcons.smilingFace,
                         text3: 'Open',
-                        light: false,
+                        light: true,
                         //tag: '3',
                         onPressed: () {
                           Navigator.pushNamed(context, ClubsScreen.id);
@@ -159,7 +159,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         color: Colors.red,
                         icon2: LineIcons.footballBall,
                         text3: 'Kick',
-                        light: false,
+                        light: true,
                         //tag: '6',
                         onPressed: () {
                           Navigator.pushNamed(context, SportsScreen.id);
