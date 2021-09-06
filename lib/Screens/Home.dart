@@ -9,6 +9,7 @@ import 'package:academiaprototype/Screens/Library/library_Screen.dart';
 import 'package:academiaprototype/Screens/Sports/sports_Screen.dart';
 import 'package:academiaprototype/Screens/news_widget.dart';
 import 'package:academiaprototype/constants.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:line_icons/line_icons.dart';
@@ -26,6 +27,84 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    List<Widget> sliderWidgets = [
+      Home_Widget(
+        height: deactivate ? 0.0 : size.shortestSide,
+        onPressed: () {
+          setState(() {
+            deactivate = !deactivate;
+            print('exit was pressed');
+          });
+          // Navigator.pop(context);
+        },
+        color: Colors.black,
+        image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
+        heading: 'Get more from your money',
+        about:
+            'Get a premium or metal account to enjoy higher limits and distinctive cards',
+      ),
+      Home_Widget(
+        height: deactivate ? 0.0 : size.shortestSide,
+        onPressed: () {
+          setState(() {
+            deactivate = !deactivate;
+            print('exit was pressed');
+          });
+          // Navigator.pop(context);
+        },
+        color: Colors.green,
+        image: 'assets/connor-coyne-OgqWLzWRSaI-unsplash.jpg',
+        heading: 'Football! Oh we so love to play',
+        about: 'The sport i love, the sport you love, the sport we all love',
+      ),
+      Home_Widget(
+        height: deactivate ? 0.0 : size.shortestSide,
+        onPressed: () {
+          setState(() {
+            deactivate = !deactivate;
+            print('exit was pressed');
+          });
+          // Navigator.pop(context);
+        },
+        color: Colors.black,
+        image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
+        heading: 'Get more from your money',
+        about:
+            'Get a premium or metal account to enjoy higher limits and distinctive cards',
+      ),
+      Home_Widget(
+        height: deactivate ? 0.0 : size.shortestSide,
+        onPressed: () {
+          setState(() {
+            deactivate = !deactivate;
+            print('exit was pressed');
+          });
+          // Navigator.pop(context);
+        },
+        color: Colors.black,
+        image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
+        heading: 'Get more from your money',
+        about:
+            'Get a premium or metal account to enjoy higher limits and distinctive cards',
+      ),
+      Home_Widget(
+        height: deactivate ? 0.0 : size.shortestSide,
+        onPressed: () {
+          setState(() {
+            deactivate = !deactivate;
+            print('exit was pressed');
+          });
+          // Navigator.pop(context);
+        },
+        color: Colors.black,
+        image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
+        heading: 'Get more from your money',
+        about:
+            'Get a premium or metal account to enjoy higher limits and distinctive cards',
+      ),
+    ];
+
+    final String title = 'Home';
 
     return SafeArea(
       child: Scaffold(
@@ -57,7 +136,7 @@ class _HomeScreenState extends State<HomeScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Home',
+                  title,
                   style: TextStyle(
                     color: kPrimaryColor,
                     fontSize: 40,
@@ -74,20 +153,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   ),
                 ),
                 SizedBox(height: 20),
-                Home_Widget(
-                  height: deactivate ? 0.0 : size.shortestSide,
-                  onPressed: () {
-                    setState(() {
-                      deactivate = !deactivate;
-                      print('exit was pressed');
-                    });
-                    // Navigator.pop(context);
-                  },
-                  color: Colors.black,
-                  image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
-                  heading: 'Get more from your money',
-                  about:
-                      'Get a premium or metal account to enjoy higher limits and distinctive cards',
+                CarouselSlider(
+                  items: sliderWidgets,
+                  options: CarouselOptions(
+                    height: deactivate ? 0.0 : size.shortestSide,
+                    aspectRatio: 1 / 1,
+                    viewportFraction: 1,
+                    initialPage: 0,
+                    enableInfiniteScroll: true,
+                    reverse: false,
+                    autoPlay: true,
+                    autoPlayInterval: Duration(seconds: 7),
+                    autoPlayAnimationDuration: Duration(milliseconds: 1100),
+                    autoPlayCurve: Curves.easeInCubic,
+                    enlargeCenterPage: true,
+                    //onPageChanged: callbackFunction,
+                    scrollDirection: Axis.horizontal,
+                  ),
                 ),
                 SizedBox(height: deactivate ? 20 : 0),
                 Row(
