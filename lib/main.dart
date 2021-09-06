@@ -29,10 +29,13 @@ import 'package:academiaprototype/Screens/General/hostel_Screen.dart';
 import 'package:academiaprototype/Screens/Home.dart';
 import 'package:academiaprototype/Screens/Library/book%20page.dart';
 import 'package:academiaprototype/Screens/Library/library_Screen.dart';
+import 'package:academiaprototype/Screens/Notification.dart';
 import 'package:academiaprototype/Screens/Sports/spoartsNews.dart';
 import 'package:academiaprototype/Screens/Sports/sportsOtherInfo.dart';
 import 'package:academiaprototype/Screens/Sports/sports_Screen.dart';
 import 'package:academiaprototype/Screens/Sports/teamsAndEvents.dart';
+import 'package:academiaprototype/Screens/finaces.dart';
+import 'package:academiaprototype/Screens/setting.dart';
 import 'package:academiaprototype/navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -52,6 +55,9 @@ class MyApp extends StatelessWidget {
         routes: {
           //********* General Pages Routes ************//
           SwipeNavigation.id: (context) => SwipeNavigation(),
+          Notifications.id: (context) => Notifications(),
+          Settings.id: (context) => Settings(),
+          Finances.id: (context) => Finances(),
           ///////////Classes page Routes///////////
           ClassesScreen.id: (context) => ClassesScreen(),
           PastQuestions.id: (context) => PastQuestions(),

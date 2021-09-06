@@ -1,165 +1,107 @@
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
 
-// ignore: camel_case_types
-
-// Home_Widget
-//   Home_Widget({
-//     this.color,
-//     this.image,
-//     this.about,
-//     this.heading,
-//     this.onPressed,
-//     //this.height,
-//     this.exit,
-//   });
-//
-//   final Color color;
-//   final String heading;
-//   final String about;
-//   final String image;
-//   final Function onPressed;
-//   // final double height;
-//   final bool exit;
-
-// ignore: camel_case_types
-class Home_Widget extends StatelessWidget {
-  Home_Widget({
-    this.color,
+class HomeFavoritiesBox extends StatelessWidget {
+  const HomeFavoritiesBox({
+    @required this.onPressed,
     this.image,
-    this.about,
-    this.heading,
-    this.onPressed,
-    //this.height,
-    this.exit,
+    this.color,
+    this.text,
+    this.text2,
+    this.text3,
+    this.icon,
+    this.icon2,
+    @required this.light,
   });
 
-  final Color color;
-  final String heading;
-  final String about;
-  final String image;
   final Function onPressed;
-  // final double height;
-  final bool exit;
+  final String image;
+  final IconData icon;
+  final IconData icon2;
+  final Color color;
+  final String text;
+  final String text2;
+  final String text3;
+  final bool light;
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    bool deactivate = false;
-    return Material(
+
+    return Container(
+      //color: Colors.pinkAccent,
+      padding: EdgeInsets.only(right: kMinMediumPadding),
+      // margin: EdgeInsets.only(right: 5),
+      width: size.width * 0.3,
+      //margin: EdgeInsets.all(kDefaultPadding),
       child: Stack(
         children: [
           Container(
-            height: deactivate ? 0.0 : size.shortestSide,
-            width: size.shortestSide,
+            // margin: EdgeInsets.only(right: 5),
+            width: size.width * 0.3,
+            height: size.height * 0.15,
             decoration: BoxDecoration(
-              color: color,
+              image: DecorationImage(
+                image: AssetImage(image),
+                fit: BoxFit.cover,
+              ),
               borderRadius: BorderRadius.all(
-                Radius.circular(10.0),
+                Radius.circular(10),
               ),
-            ),
-            child: Center(
-              child: Container(
-                height: size.shortestSide * 0.67,
-                width: size.shortestSide * 0.6,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage(image),
-                    fit: BoxFit.fill,
-                  ),
-//            borderRadius: BorderRadius.all(
-//              Radius.circular(5.0),
-//            ),
+//                border: Border.all(
+//                  color: kPrimaryColor,
+//                  style: BorderStyle.solid,
+//                ),
+              boxShadow: [
+                BoxShadow(
+                  offset: Offset(0, 5),
+                  blurRadius: 10,
+                  color: kPrimaryColor.withOpacity(0.23),
                 ),
-              ),
+              ],
             ),
-          ),
-          Positioned(
-            top: 10,
-            left: 10,
-            child: Container(
-              decoration: BoxDecoration(
-                color: Colors.white,
-                shape: BoxShape.circle,
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Icon(Icons.star, color: Colors.black),
-              ),
-            ),
-          ),
-          Positioned(
-            top: 10,
-            right: 10,
-            child: IconButton(
-              icon: Icon(
-                Icons.close,
-                color: Colors.white,
-              ),
+            child: MaterialButton(
               onPressed: onPressed,
             ),
           ),
           Positioned(
-            left: 10,
-            top: size.shortestSide * 0.50,
-            // bottom: size.shortestSide * 0.25,
-            child: Container(
-              constraints: BoxConstraints.tightFor(
-                width: size.shortestSide * 0.7,
-                height: size.shortestSide * 0.3,
-              ),
-              child: Text(
-                heading,
-                style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold),
-                maxLines: 2,
-              ),
+            left: size.width * 0.05,
+            top: size.height * 0.09,
+            child: Text(
+              text,
+              style: TextStyle(
+                  color: light ? Colors.white : Colors.black,
+                  fontSize: 15,
+                  fontWeight: FontWeight.bold),
+              //.toUpperCase
+              //todo: fkx thks
+//                style: GoogleFonts.mcLaren(
+//                  color: Colors.black.withOpacity(0.9),
+//                  fontWeight: FontWeight.w500,
+//                  fontSize: 12,
+//                ),
             ),
           ),
           Positioned(
-            top: size.shortestSide * 0.828,
-            left: 10,
+            left: 0,
+            top: size.height * 0.12,
             child: Container(
-              constraints: BoxConstraints.tightFor(
-                width: size.shortestSide * 0.6,
-                height: size.shortestSide * 0.3,
-              ),
+              //padding: const EdgeInsets.all(4.0),
+              margin: const EdgeInsets.all(4.0),
               child: Text(
-                about,
+                text2,
+                overflow: TextOverflow.ellipsis,
                 style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 13,
+                  color: light ? Colors.white70 : Colors.black,
+                  fontSize: 09,
                 ),
-              ),
-            ),
-          ),
-          Positioned(
-            top: size.shortestSide * 0.854,
-            right: 5,
-            child: FlatButton(
-              onPressed: () {},
-              child: Container(
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(10.0),
-                  ),
-                ),
-                child: Center(
-                  child: Padding(
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 11.0, vertical: 5),
-                    child: Text(
-                      'Get',
-                      style: TextStyle(
-                        color: kPrimaryColor,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
+                //.toLowerCase(),
+                //todo:  fkx thks
+//                style: GoogleFonts.mcLaren(
+//                  color: Colors.black.withOpacity(0.5),
+//                  fontWeight: FontWeight.w500,
+//                  fontSize: 10,
+//                ),
               ),
             ),
           ),

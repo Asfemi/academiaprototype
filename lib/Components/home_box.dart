@@ -12,7 +12,6 @@ class HomeBox extends StatelessWidget {
     this.text3,
     this.icon,
     this.icon2,
-    //this.tag,
     @required this.light,
   });
 
@@ -24,7 +23,6 @@ class HomeBox extends StatelessWidget {
   final String text;
   final String text2;
   final String text3;
-  //final String tag;
   final bool light;
 
   @override

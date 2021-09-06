@@ -20,11 +20,12 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 
+bool deactivate = false;
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    bool deactivate = false;
 
     return SafeArea(
       child: Scaffold(
@@ -74,13 +75,13 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 SizedBox(height: 20),
                 Home_Widget(
-                  //height: deactivate ? 0.0 : size.shortestSide,
+                  height: deactivate ? 0.0 : size.shortestSide,
                   onPressed: () {
                     setState(() {
                       deactivate = !deactivate;
                       print('exit was pressed');
                     });
-                    Navigator.pop(context);
+                    // Navigator.pop(context);
                   },
                   color: Colors.black,
                   image: 'assets/dom-aguiar-x6S3Z0vZxj4-unsplash.jpg',
@@ -195,45 +196,11 @@ class _HomeScreenState extends State<HomeScreen> {
                         text: 'Students life',
                         text2: 'dinner, welfare...',
                       ), //Students life
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.yellow,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.deepPurple,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.green,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.pinkAccent,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.blueGrey,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.deepOrange,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
                     ],
                   ),
                 ),
                 SizedBox(height: 20),
-                Text(
-                  'Analytics',
-                  //other texts like discover skills, bla bla bla
-                  style: kHeadingText2,
-                ),
+                Text('Analytics', style: kHeadingText2),
                 SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -408,7 +375,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      HomeBox(
+                      HomeFavoritiesBox(
                         light: false,
                         color: Colors.black,
                         icon2: Icons.drafts_sharp,
@@ -421,7 +388,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         text: 'Faculty',
                         text2: 'department, contact...',
                       ),
-                      HomeBox(
+                      HomeFavoritiesBox(
                         color: Colors.redAccent,
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
@@ -435,7 +402,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         text: 'Library',
                         text2: 'online, offline books...',
                       ),
-                      HomeBox(
+                      HomeFavoritiesBox(
                         color: Colors.yellow,
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
@@ -448,7 +415,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         text: 'Clubs',
                         text2: 'makeup, cooking...',
                       ),
-                      HomeBox(
+                      HomeFavoritiesBox(
                         color: Colors.yellowAccent,
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
@@ -461,7 +428,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         text: 'Sports',
                         text2: 'basketball, football...',
                       ),
-                      HomeBox(
+                      HomeFavoritiesBox(
                         color: Colors.black,
                         icon2: Icons.drafts_sharp,
                         text3: 'm3m3',
@@ -475,49 +442,19 @@ class _HomeScreenState extends State<HomeScreen> {
                         text: 'General',
                         text2: 'cafeterial, maps, hostel...',
                       ),
-                      HomeBox(
+                      HomeFavoritiesBox(
                         color: Colors.yellow.shade700,
                         icon2: Icons.drafts_sharp,
-                        text3: 'm3m3',
+                        //text3: 'm3m3',
                         light: true,
                         //tag: '4',
                         onPressed: () {
                           // Navigator.pushNamed(context, AusaScreen.id);
                         },
                         image: 'assets/c-d-x-PDX_a_82obo-unsplash.jpg',
-                        text: 'Screens.Ausa',
+                        text: 'Ausa',
                         text2: 'dinner, welfare...',
                       ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.yellow,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.deepPurple,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.green,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.pinkAccent,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.blueGrey,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
-                      // HomeTab(
-                      //   size: size,
-                      //   color: Colors.deepOrange,
-                      //   writeUp: '8 Days to Unlocking Languages',
-                      // ),
                     ],
                   ),
                 ),
@@ -545,8 +482,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     begin: Alignment.topLeft,
                     end: Alignment.bottomRight,
                     colors: [
+                      Colors.lightBlueAccent,
+                      Colors.blueAccent,
                       Colors.lightBlue,
-                      Colors.white,
+                      Colors.blue,
                     ],
                   ),
                 ),
@@ -556,8 +495,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Container(
-                          width: size.shortestSide / 3,
-                          height: size.shortestSide / 3,
+                          width: size.shortestSide / 3.5,
+                          height: size.shortestSide / 3.5,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
                             image: DecorationImage(
@@ -576,9 +515,95 @@ class _HomeScreenState extends State<HomeScreen> {
                   ],
                 ),
               ),
-              Column(
-                //Todo: set up proper drawer items *based on purpular demand.
-                children: [],
+              ListTile(
+                title: Text(
+                  'Profile',
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  'Settings',
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  'Interests',
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              ListTile(
+                title: Text(
+                  'Become a member',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              ListTile(
+                title: Text(
+                  'New story',
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  'Stats',
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+              ),
+              ListTile(
+                title: Text(
+                  'Notifications',
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.5),
+                  ),
+                ),
+              ),
+              Spacer(),
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0, left: 10.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    TextButton(
+                      onPressed: () {
+                        //Navigator.pushNamed(context, ArticlesSettingsScreen.id);
+                        //TODO: fix this route to the correct one
+                      },
+                      child: Text(
+                        'Rate Us',
+                        style: TextStyle(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        //TODO: fix this route to the correct one
+                      },
+                      child: Text(
+                        'Log Out',
+                        style: TextStyle(
+                          color: Colors.black.withOpacity(0.7),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
@@ -812,99 +837,149 @@ Widget dashboard(context) {
   );
 }
 
-// Divider(
-//   indent: size.width * 0.002,
-//   endIndent: size.width * 0.98 ,
-//   color: Colors.green,
-//   thickness: 5,
-// ),
+//ignore: camel_case_types
+class Home_Widget extends StatelessWidget {
+  Home_Widget({
+    this.color,
+    this.image,
+    this.about,
+    this.heading,
+    this.onPressed,
+    this.height,
+    this.exit,
+  });
 
-//                      Padding(
-//                        padding: const EdgeInsets.only(bottom: 8.0),
-//                        child: Row(
-//                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: [
-//                            Column(
-//                              mainAxisAlignment: MainAxisAlignment.start,
-//                              crossAxisAlignment: CrossAxisAlignment.start,
-//                              children: [
-//                                Text(
-//                                  'Free Blink of the Day',
-//                                  style: TextStyle(
-//                                    color: kPrimaryTextColor,
-//                                    fontSize: 19,
-//                                    fontWeight: FontWeight.bold,
-//                                  ),
-//                                ),
-//                                Text(
-//                                  'selected by our curators',
-//                                  style: TextStyle(
-//                                    color: kPrimaryTextColor,
-//                                    fontSize: 12,
-//                                    fontWeight: FontWeight.normal,
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                            Icon(
-//                              Icons.notifications_outlined,
-//                              color: kPrimaryTextColor,
-//                            ),
-//                          ],
-//                        ),
-//                      ),
+  final Color color;
+  final String heading;
+  final String about;
+  final String image;
+  final Function onPressed;
+  final double height;
+  final bool exit;
 
-//                      Padding(
-//                        padding: const EdgeInsets.only(top: 8.0),
-//                        child: Row(
-//                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                          crossAxisAlignment: CrossAxisAlignment.start,
-//                          children: [
-//                            Column(
-//                              mainAxisAlignment: MainAxisAlignment.start,
-//                              crossAxisAlignment: CrossAxisAlignment.start,
-//                              children: [
-//                                Text(
-//                                  'Work together any where',
-//                                  style: TextStyle(
-//                                    color: kPrimaryTextColor,
-//                                    fontSize: 14,
-//                                    fontWeight: FontWeight.bold,
-//                                  ),
-//                                ),
-//                                Text(
-//                                  'Mr Sam and Prof Ay',
-//                                  style: TextStyle(
-//                                    color: kPrimaryTextColor,
-//                                    fontSize: 12,
-//                                    fontWeight: FontWeight.normal,
-//                                  ),
-//                                ),
-//                              ],
-//                            ),
-//                            Icon(
-//                              Icons.share_outlined,
-//                              color: kPrimaryTextColor,
-//                            ),
-//                          ],
-//                        ),
-//                      ),
-//                      Text(
-//                        'A handBook on working Remotely - successfully - for Indiviuals, Teams and Managers',
-//                        style: TextStyle(
-//                          color: kPrimaryTextColor,
-//                          fontSize: 12,
-//                          fontWeight: FontWeight.normal,
-//                        ),
-//                      ),
-
-//                Text(
-//                  'Guilded learning on popular topics',
-//                  style: kHeadingText3,
-//                ),
-
-//                Divider(
-//                  color: Colors.black26,
-//                  thickness: 1,
-//                ),
+  @override
+  Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
+    // bool deactivate = false;
+    return Material(
+      child: Stack(
+        children: [
+          Container(
+            height: deactivate ? 0.0 : size.shortestSide,
+            width: size.shortestSide,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: BorderRadius.all(
+                Radius.circular(10.0),
+              ),
+            ),
+            child: Center(
+              child: Container(
+                height: size.shortestSide * 0.67,
+                width: size.shortestSide * 0.6,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: AssetImage(image),
+                    fit: BoxFit.fill,
+                  ),
+//            borderRadius: BorderRadius.all(
+//              Radius.circular(5.0),
+//            ),
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            left: 10,
+            child: Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                shape: BoxShape.circle,
+              ),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Icon(Icons.star, color: Colors.black),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: IconButton(
+              icon: Icon(
+                Icons.close,
+                color: Colors.white,
+              ),
+              onPressed: onPressed,
+            ),
+          ),
+          Positioned(
+            left: 10,
+            top: size.shortestSide * 0.50,
+            // bottom: size.shortestSide * 0.25,
+            child: Container(
+              constraints: BoxConstraints.tightFor(
+                width: size.shortestSide * 0.7,
+                height: size.shortestSide * 0.3,
+              ),
+              child: Text(
+                heading,
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.bold),
+                maxLines: 2,
+              ),
+            ),
+          ),
+          Positioned(
+            top: size.shortestSide * 0.828,
+            left: 10,
+            child: Container(
+              constraints: BoxConstraints.tightFor(
+                width: size.shortestSide * 0.6,
+                height: size.shortestSide * 0.3,
+              ),
+              child: Text(
+                about,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 13,
+                ),
+              ),
+            ),
+          ),
+          Positioned(
+            top: size.shortestSide * 0.854,
+            right: 5,
+            child: FlatButton(
+              onPressed: () {},
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(
+                    Radius.circular(10.0),
+                  ),
+                ),
+                child: Center(
+                  child: Padding(
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 11.0, vertical: 5),
+                    child: Text(
+                      'Get',
+                      style: TextStyle(
+                        color: kPrimaryColor,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
