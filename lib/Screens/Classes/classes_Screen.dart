@@ -2,7 +2,6 @@ import 'package:academiaprototype/Screens/Classes/More.dart';
 import 'package:academiaprototype/Screens/Classes/class_search_row_text.dart';
 import 'package:academiaprototype/Screens/Classes/notes.dart';
 import 'package:academiaprototype/Screens/Classes/pastQuestions.dart';
-import 'package:academiaprototype/Screens/class_wigdet.dart';
 //academiaprototype/constants.dart';
 import 'package:academiaprototype/constants.dart';
 import 'package:flutter/material.dart';
@@ -63,259 +62,252 @@ class _ClassesScreenState extends State<ClassesScreen>
         backgroundColor: Colors.grey.shade100,
         // centerTitle: true,
       ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(
-          Icons.add,
-          color: Colors.white,
-        ),
-        backgroundColor: kPrimaryColor,
-        elevation: 5,
-        onPressed: () {},
-      ),
+      // floatingActionButton: FloatingActionButton(
+      //   child: Icon(
+      //     Icons.add,
+      //     color: Colors.white,
+      //   ),
+      //   backgroundColor: kPrimaryColor,
+      //   elevation: 5,
+      //   onPressed: () {},
+      // ),
       body: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(
-                    '$title',
-                    style: TextStyle(
-                      color: kPrimaryColor,
-                      fontSize: 40,
+            padding: const EdgeInsets.only(
+              left: 8.0,
+              right: 8.0,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(
+                  '$title',
+                  style: TextStyle(
+                    color: kPrimaryColor,
+                    fontSize: 40,
+                  ),
+                ),
+                Container(
+                  height: size.height * 0.005,
+                  width: size.width * 0.045,
+                  padding: EdgeInsets.only(left: 10),
+                  decoration: BoxDecoration(
+                    color: Colors.black54,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(5.0),
                     ),
                   ),
-                  Container(
-                    height: size.height * 0.005,
-                    width: size.width * 0.045,
-                    padding: EdgeInsets.only(left: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5.0),
-                      ),
+                ),
+                Container(
+                  width: size.shortestSide,
+                  height: size.height * 0.08,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(8),
                     ),
-                  ),
-                  Container(
-                    width: size.shortestSide,
-                    height: size.height * 0.08,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(8),
-                      ),
 //                  border: Border.all(
 //                    color: kPrimaryColor,
 //                    style: BorderStyle.solid,
 //                  ),
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0, 2),
-                          blurRadius: 2,
-                          color: kPrimaryColor.withOpacity(0.23),
+                    boxShadow: [
+                      BoxShadow(
+                        offset: Offset(0, 2),
+                        blurRadius: 2,
+                        color: kPrimaryColor.withOpacity(0.23),
+                      ),
+                    ],
+                  ),
+                  margin: const EdgeInsets.only(top: 8.0, bottom: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      SizedBox(width: 10, height: 10),
+                      Expanded(
+                        flex: 10,
+                        child: Center(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceAround,
+                            children: [
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Title:',
+                                    style: TextStyle(
+                                        fontSize: 11, color: Colors.black54),
+                                  ),
+                                  Text(
+                                    '$courseTitle',
+                                    style: TextStyle(
+                                        fontSize: 11, color: kPrimaryColor),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Lecturer:',
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.black54),
+                                  ),
+                                  Text(
+                                    '$courseLecturer',
+                                    style: TextStyle(
+                                        fontSize: 10, color: kPrimaryColor),
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Text(
+                                    'Date/time:',
+                                    style: TextStyle(
+                                        fontSize: 10, color: Colors.black54),
+                                  ),
+                                  Text(
+                                    '$courseDetails',
+                                    style: TextStyle(
+                                        fontSize: 10, color: kPrimaryColor),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
-                      ],
-                    ),
-                    margin: const EdgeInsets.only(top: 8.0, bottom: 8.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceAround,
-                      children: [
-                        SizedBox(width: 10, height: 10),
-                        Expanded(
-                          flex: 10,
+                      ),
+                      SizedBox(width: 10, height: 10),
+                      Expanded(
+                        flex: 2,
+                        child: ClipOval(
                           child: Center(
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              children: [
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Title:',
-                                      style: TextStyle(
-                                          fontSize: 11, color: Colors.black54),
-                                    ),
-                                    Text(
-                                      '$courseTitle',
-                                      style: TextStyle(
-                                          fontSize: 11, color: kPrimaryColor),
-                                    ),
-                                  ],
+                            child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: IconButton(
+                                icon: Icon(
+                                  Icons.subject,
+                                  color: kPrimaryColor,
+                                  size: 25,
                                 ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Lecturer:',
-                                      style: TextStyle(
-                                          fontSize: 10, color: Colors.black54),
-                                    ),
-                                    Text(
-                                      '$courseLecturer',
-                                      style: TextStyle(
-                                          fontSize: 10, color: kPrimaryColor),
-                                    ),
-                                  ],
-                                ),
-                                Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Text(
-                                      'Date/time:',
-                                      style: TextStyle(
-                                          fontSize: 10, color: Colors.black54),
-                                    ),
-                                    Text(
-                                      '$courseDetails',
-                                      style: TextStyle(
-                                          fontSize: 10, color: kPrimaryColor),
-                                    ),
-                                  ],
-                                ),
-                              ],
+                                onPressed: () {
+                                  setState(() {
+                                    bActive = !bActive;
+                                  });
+                                },
+                              ),
                             ),
                           ),
                         ),
-                        SizedBox(width: 10, height: 10),
-                        Expanded(
-                          flex: 2,
-                          child: ClipOval(
-                            child: Container(
-                              constraints: BoxConstraints(
-                                maxHeight: size.shortestSide * 0.13,
-                                maxWidth: size.shortestSide * 0.1,
+                      ),
+                      SizedBox(width: 10, height: 10),
+                    ],
+                  ),
+                ),
+                Container(
+                  height: size.height * 0.6,
+                  width: size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                    border: Border.all(
+                      color: kPrimaryColor,
+                      style: BorderStyle.solid,
+                    ),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        ClassStream(),
+                        SizedBox(height: 5),
+                        Container(
+                          height: size.height * 0.05,
+                          //decoration: kMessageContainerDecoration,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: <Widget>[
+                              Expanded(
+                                child: TextField(
+                                  //textInputAction: TextInputAction.search,
+                                  controller: messageTextController,
+                                  maxLines: 1,
+                                  onChanged: (value) {
+                                    //Do something with the user input.
+                                    messageText = value;
+                                  },
+                                  decoration: kMessageTextFieldDecoration,
+                                ),
                               ),
-                              // height: size.shortestSide * 0.13,
-                              // width: size.shortestSide * 0.1,
-                              color: kPrimaryColor.shade100,
-                              child: Center(
-                                child: Padding(
-                                  padding: const EdgeInsets.all(3.0),
+                              SizedBox(width: 10),
+                              Material(
+                                color: kPrimaryColor,
+                                shape: CircleBorder(),
+                                child: Center(
                                   child: IconButton(
-                                    icon: Icon(
-                                      Icons.subject,
-                                      color: kPrimaryColor,
-                                      size: 25,
-                                    ),
+                                    //set the send functionality to not work without a tag been set for the text input
                                     onPressed: () {
-                                      setState(() {
-                                        bActive = !bActive;
-                                      });
+                                      //Implement send functionality.
+                                      messageTextController.clear();
+                                      // _dB.collection('messages').add({
+                                      //   'text': messageText,
+                                      //   'sender': loggedInUser.displayName,
+                                      // });
+                                      //TODO: remember to add this collection 'messages' to the database
                                     },
+                                    icon: Icon(
+                                      Icons.send,
+                                      color: Colors.white,
+                                    ),
+                                    // child: Text(
+                                    //   'Send',
+                                    //   style: kSendButtonTextStyle,
+                                    // ),
                                   ),
                                 ),
                               ),
-                            ),
+                            ],
                           ),
                         ),
-                        SizedBox(width: 10, height: 10),
                       ],
                     ),
                   ),
-                  Container(
-                    height: size.height * 0.5,
-                    width: size.width,
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(10),
-                      ),
-                      border: Border.all(
-                        color: kPrimaryColor,
-                        style: BorderStyle.solid,
-                      ),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          ClassStream(),
-                          Container(
-                            height: size.height * 0.05,
-                            //decoration: kMessageContainerDecoration,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: <Widget>[
-                                Expanded(
-                                  child: TextField(
-                                    //textInputAction: TextInputAction.search,
-                                    controller: messageTextController,
-                                    maxLines: 1,
-                                    onChanged: (value) {
-                                      //Do something with the user input.
-                                      messageText = value;
-                                    },
-                                    decoration: kMessageTextFieldDecoration,
-                                  ),
-                                ),
-                                SizedBox(width: 10),
-                                Material(
-                                  color: kPrimaryColor,
-                                  shape: CircleBorder(),
-                                  child: Center(
-                                    child: IconButton(
-                                      //set the send functionality to not work without a tag been set for the text input
-                                      onPressed: () {
-                                        //Implement send functionality.
-                                        messageTextController.clear();
-                                        // _dB.collection('messages').add({
-                                        //   'text': messageText,
-                                        //   'sender': loggedInUser.displayName,
-                                        // });
-                                        //TODO: remember to add this collection 'messages' to the database
-                                      },
-                                      icon: Icon(
-                                        Icons.send,
-                                        color: Colors.white,
-                                      ),
-                                      // child: Text(
-                                      //   'Send',
-                                      //   style: kSendButtonTextStyle,
-                                      // ),
-                                    ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.fromLTRB(0, 10, 4, 0),
-                    child: SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          ClassWigdet(
-                            size: size,
-                            text: 'Previous Classes',
-                          ),
-                          ClassWigdet(
-                            size: size,
-                            text: 'Up Coming Classes',
-                          ),
-                          ClassWigdet(
-                            size: size,
-                            text: 'List of Classes',
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
+                ),
+                // Padding(
+                //   padding: const EdgeInsets.fromLTRB(0, 10, 4, 0),
+                //   child: SingleChildScrollView(
+                //     scrollDirection: Axis.horizontal,
+                //     child: Row(
+                //       mainAxisAlignment: MainAxisAlignment.start,
+                //       children: [
+                //         ClassWigdet(
+                //           size: size,
+                //           text: 'Previous Classes',
+                //         ),
+                //         ClassWigdet(
+                //           size: size,
+                //           text: 'Up Coming Classes',
+                //         ),
+                //         ClassWigdet(
+                //           size: size,
+                //           text: 'List of Classes',
+                //         ),
+                //       ],
+                //     ),
+                //   ),
+                // ),
+              ],
             ),
           ),
           BuildPositioned(
@@ -594,9 +586,7 @@ class ClassBubble extends StatelessWidget {
                   'Search Result:',
                   style: TextStyle(fontSize: 12, color: Colors.black54),
                 ),
-                SizedBox(
-                  width: 10,
-                ),
+                SizedBox(width: 10),
                 Text(
                   '$search',
                   style: TextStyle(fontSize: 12, color: Colors.black54),
@@ -606,9 +596,9 @@ class ClassBubble extends StatelessWidget {
             Material(
               elevation: 5.0,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(30),
-                bottomRight: Radius.circular(30),
-                topRight: Radius.circular(30),
+                bottomLeft: Radius.circular(20),
+                bottomRight: Radius.circular(20),
+                topRight: Radius.circular(20),
               ),
               color: Colors.white,
               child: Padding(

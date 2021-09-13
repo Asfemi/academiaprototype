@@ -83,6 +83,13 @@ List<ClassModel> classData = [
     sender: 'lizzy',
     isMe: false,
   ),
+  ClassModel(
+    searchbool: true,
+    search: 'is virtual work proven?',
+    searchResultText1: 'well its very likely but not definite',
+    searchResultText2: 'there is no certainty in theory',
+    searchResultText3: 'it describes to a high degree but isnt totally certain',
+  ),
 
   // ClassModel(),
   // ClassModel(),
