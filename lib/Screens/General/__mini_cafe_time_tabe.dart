@@ -616,6 +616,5 @@ class _DepartmentTimeTableState extends State<DepartmentTimeTable> {
         ),
       ],
     );
-    ;
   }
 }

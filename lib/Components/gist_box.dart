@@ -75,7 +75,7 @@ class GistBox extends StatelessWidget {
                   ),
                   Spacer(),
                   Flexible(
-                    child: FlatButton(
+                    child: TextButton(
                         onPressed: () {},
                         child: ClipOval(
                             child: Container(

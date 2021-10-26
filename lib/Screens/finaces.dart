@@ -12,6 +12,6 @@ class Finances extends StatefulWidget {
 class _FinancesState extends State<Finances> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return SafeArea(child: Container());
   }
 }

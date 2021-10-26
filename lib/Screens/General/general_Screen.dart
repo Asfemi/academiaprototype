@@ -239,7 +239,7 @@ class _GeneralScreenState extends State<GeneralScreen> {
                                   ],
                                 ),
                                 actions: <Widget>[
-                                  FlatButton(
+                                  TextButton(
                                       child: const Text('Okay'),
                                       onPressed: () {
                                         Navigator.pop(

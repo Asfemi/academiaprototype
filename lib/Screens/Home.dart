@@ -376,6 +376,8 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ),
                     Container(
+                      width: size.shortestSide * 0.45,
+                      height: size.shortestSide / 2,
                       decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.all(
@@ -389,8 +391,6 @@ class _HomeScreenState extends State<HomeScreen> {
                           ),
                         ],
                       ),
-                      width: size.shortestSide * 0.45,
-                      height: size.shortestSide / 2,
                       child: Padding(
                         padding: const EdgeInsets.all(10.0),
                         child: Column(
@@ -401,41 +401,33 @@ class _HomeScreenState extends State<HomeScreen> {
                               'Track your spending and save more, set up a budget.',
                               style: kHeadingText3.copyWith(fontSize: 11),
                             ),
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Colors.blue.withOpacity(0.2),
-                                borderRadius: BorderRadius.all(
-                                  Radius.circular(10),
-                                ),
-//                                boxShadow: [
-//                                  BoxShadow(
-//                                    offset: Offset(0, 3),
-//                                    blurRadius: 5,
-//                                    color: kPrimaryColor.withOpacity(0.23),
-//                                  ),
-//                                ],
-                              ),
-                              height: 28,
-                              width: 75,
-//                              constraints: BoxConstraints(
-//                                maxHeight: 20
-//                              ),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  Icon(
-                                    Icons.add,
-                                    color: kPrimaryColor.shade900,
-                                    size: 15.5,
+                            GestureDetector(
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.blue.withOpacity(0.2),
+                                  borderRadius: BorderRadius.all(
+                                    Radius.circular(10),
                                   ),
-                                  Text(
-                                    'Set up',
-                                    style: TextStyle(
-                                        color: kPrimaryColor.shade900,
-                                        fontWeight: FontWeight.w600),
-                                  )
-                                ],
+                                ),
+                                height: 28,
+                                width: 75,
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  children: [
+                                    Icon(
+                                      Icons.add,
+                                      color: kPrimaryColor.shade900,
+                                      size: 15.5,
+                                    ),
+                                    Text(
+                                      'Set up',
+                                      style: TextStyle(
+                                          color: kPrimaryColor.shade900,
+                                          fontWeight: FontWeight.w600),
+                                    )
+                                  ],
+                                ),
                               ),
                             ),
                           ],
@@ -1035,7 +1027,7 @@ class Home_Widget extends StatelessWidget {
           Positioned(
             top: size.shortestSide * 0.854,
             right: 5,
-            child: FlatButton(
+            child: TextButton(
               onPressed: () {},
               child: Container(
                 decoration: BoxDecoration(

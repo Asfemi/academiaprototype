@@ -234,7 +234,7 @@ class _ArticlesHomeScreenState extends State<ArticlesHomeScreen> {
                       ),
                     ),
                   ),
-                  FlatButton(
+                  TextButton(
                     onPressed: () {
                       //Navigator.pushNamed(context, ArticlesSettingsScreen.id);
                       //TODO: fix this route to the correct one
@@ -246,7 +246,7 @@ class _ArticlesHomeScreenState extends State<ArticlesHomeScreen> {
                       ),
                     ),
                   ),
-                  FlatButton(
+                  TextButton(
                     onPressed: () {
                       //Navigator.pushNamed(context, ArticlesHelpScreen.id);
                       //TODO: fix this route to the correct one
